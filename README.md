@@ -2,7 +2,7 @@
 [shlmagazine.com](https://shlmagazine.com)
 
 This repository hosts two types of files for the *SHLM* website:
-* Themes: the default and its child.
+* Themes: currently, just the active one.
 * Plugins: currently, just the SHLM functionality plugin.
 
 All contributions welcome.
