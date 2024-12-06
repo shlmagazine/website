@@ -17,7 +17,9 @@ jobs:
           chmod 600 id_rsa
 
       - name: Access server
-        run: ssh -T -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME_IP }}
+        run: |
+          ssh -T -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME_IP }}
+          ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update files
         run: git pull
