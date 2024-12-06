@@ -19,8 +19,8 @@ jobs:
           echo "${{ secrets.PUBLIC_KEY }}" > id_rsa.pub
           chmod 600 id_rsa
           chmod 600 id_rsa.pub
-          ls
           ssh-keyscan -H ${{ secrets.IP }} >> known_hosts
+          ls -a
 
       - name: Access server
         run: |
