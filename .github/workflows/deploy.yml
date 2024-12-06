@@ -20,7 +20,7 @@ jobs:
           chmod 600 id_rsa
           chmod 600 id_rsa.pub
           ssh-keyscan -H -p ${{ secrets.WEBSITE_PORT }} ${{ secrets.WEBSITE_IP }} >> known_hosts
-          apt-get install sshpass
+          sudo apt-get install sshpass
 
       - name: Access server
         run: |
