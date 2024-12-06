@@ -11,10 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up private key
+      - name: Set up SSH
         run: |
+          mkdir -p ~/.ssh/
+          cd ~/.ssh/
           echo "${{ secrets.PRIVATE_KEY }}" > id_rsa
+          echo "${{ secrets.PUBLIC_KEY }}" > id_rsa.pub
           chmod 600 id_rsa
+          chmod 600 id_rsa.pub
+          ssh-keyscan -H ${{ secrets.IP }} >> known_hosts
 
       - name: Access server
         run: |
