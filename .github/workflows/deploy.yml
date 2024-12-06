@@ -24,7 +24,7 @@ jobs:
 
       - name: Access server
         run: |
-          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i ~/.ssh/id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} uptime
+          sshpass -p "${{ secrets.SSH_PASSPHRASE }}" ssh -T -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} uptime
 
       - name: Update files
         run: git pull
