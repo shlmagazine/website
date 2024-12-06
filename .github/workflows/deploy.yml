@@ -19,7 +19,6 @@ jobs:
       - name: Access server
         run: |
           ssh -T -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME_IP }}
-          echo ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update files
         run: git pull
