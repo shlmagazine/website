@@ -28,6 +28,7 @@ jobs:
 
       - name: Update files
         run: |
+          pwd
           cd ..
           git pull
 
