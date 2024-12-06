@@ -23,7 +23,7 @@ jobs:
 
       - name: Access server
         run: |
-          ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} uptime
+          ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i ~/.ssh/id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} uptime
           echo ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update files
