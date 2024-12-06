@@ -19,6 +19,7 @@ jobs:
       - name: Access server
         run: |
           ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME_IP }} uptime
+          ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update files
         run: git pull
