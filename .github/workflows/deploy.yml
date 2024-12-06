@@ -25,12 +25,8 @@ jobs:
       - name: Access server
         run: |
           ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i ~/.ssh/id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} uptime
-
-      - name: Sleep for 10 seconds
-        run: sleep 30s
-
-      - name: Enter SSH passphrase
-        run: echo ${{ secrets.SSH_PASSPHRASE }}
+          sleep 10s
+          echo ${{ secrets.SSH_PASSPHRASE }}
 
       - name: Update files
         run: git pull
