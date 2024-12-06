@@ -15,7 +15,6 @@ jobs:
         run: |
           echo "${{ secrets.PRIVATE_KEY }}" > id_rsa
           chmod 600 id_rsa
-          ssh-keyscan -p ${{ secrets.WEBSITE_PORT }} ${{ secrets.PUBLIC_KEY }} >> known_hosts
 
       - name: Access server
         run: ssh -p ${{ secrets.WEBSITE_PORT }} -i id_rsa ${{ secrets.WEBSITE_USERNAME_IP }}
