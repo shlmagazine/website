@@ -28,7 +28,5 @@ jobs:
           pwd
           ls -a
           git pull
+          exit
           EOF
-
-      - name: Log off
-        run: exit
