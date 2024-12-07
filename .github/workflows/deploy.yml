@@ -27,12 +27,8 @@ jobs:
           sshpass -p "${{ secrets.SSH_PASSPHRASE }}" -P passphrase ssh -T -o StrictHostKeyChecking=no -p ${{ secrets.WEBSITE_PORT }} -i ~/.ssh/id_rsa ${{ secrets.WEBSITE_USERNAME }}@${{ secrets.WEBSITE_IP }} <<EOF
           pwd
           ls -a
+          git pull
           EOF
-
-      - name: Update files
-        run: |
-          pwd
-          ls -a
 
       - name: Log off
         run: exit
