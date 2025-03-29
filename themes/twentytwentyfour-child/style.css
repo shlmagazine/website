@@ -1112,6 +1112,17 @@ input[type="checkbox"]:checked::after {
     clip-path: polygon(40% 70%, 100% 0, 100% 30%, 40% 100%, 0 70%, 0 40%);
 }
 
+/* Exception for comments checkboxes (fix very short checkbox) */
+#wp-comment-cookies-consent {
+    height: initial;
+}
+
+label[for="wp-comment-cookies-consent"] {
+    font-size: var(--font-size__body);
+    font-family: var(--font-family__body);
+    margin: initial;
+}
+
 /* Contact Form 7 file selector and submit buttons */
 input::-webkit-file-upload-button, input::file-selector-button {
     /* Choose File */
