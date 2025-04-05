@@ -128,7 +128,7 @@ body {
     margin-block-start: 1rem;
 }
 
-.author-box + p {
+p:has(+ .author-box) {
     /* Reset margin after paragraph if author box follows immediately */
     -webkit-margin-after: -3rem;
     margin-block-end: -3rem;
