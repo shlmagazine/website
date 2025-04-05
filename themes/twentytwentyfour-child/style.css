@@ -130,8 +130,8 @@ body {
 
 p:has(+ .author-box) {
     /* Reset margin after paragraph if author box follows immediately */
-    -webkit-margin-after: -3rem;
-    margin-block-end: -3rem;
+    -webkit-margin-after: -2rem;
+    margin-block-end: -2rem;
 }
 
 ul,
