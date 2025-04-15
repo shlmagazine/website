@@ -697,6 +697,10 @@ h2.team-member__name {
 
 /* || Meta */
 /* Author info */
+.wp-block-post-author__avatar img {
+	object-fit: cover;
+}
+
 .wp-block-post-author {
 	align-items: center;
 }
