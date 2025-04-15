@@ -195,6 +195,24 @@ h3.wp-block-heading {
     margin-block-end: -0.5rem;
 }
 
+.wp-block-pullquote {
+    text-align: left;
+}
+
+.wp-block-pullquote em::before {
+    content: "“";
+}
+
+.wp-block-pullquote em::after {
+    content: "”";
+}
+
+.wp-block-pullquote cite {
+    float: right;
+    font-size: var(--font-size__body);
+    font-family: var(--font-family__body);
+}
+
 .wp-block-query-title > span {
 	font-size: revert;
 	font-family: revert;
