@@ -213,6 +213,10 @@ h3.wp-block-heading {
     font-family: var(--font-family__body);
 }
 
+.wp-block-pullquote cite::before {
+    content: "—";
+}
+
 .wp-block-query-title > span {
 	font-size: revert;
 	font-family: revert;
