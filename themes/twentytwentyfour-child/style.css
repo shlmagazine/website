@@ -509,6 +509,7 @@ footer .wp-block-loginout a {
         -webkit-column-gap: 1rem;
         -moz-column-gap: 1rem;
         column-gap: 1rem;
+        row-gap: 0;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
