@@ -25,31 +25,43 @@ function add_social_media_fields($user) {
         <tr>
             <th><label for="linkedin-link">LinkedIn</label></th>
             <td>
-                <input type="text" name="linkedin-link" id="linkedin-link" value="<?php echo esc_attr( get_the_author_meta( 'linkedin_link', $user->ID ) ); ?>" class="regular-text" />
+                <input type="text" name="linkedin_link" id="linkedin-link" value="<?php echo esc_attr( get_the_author_meta( 'linkedin_link', $user->ID ) ); ?>" class="regular-text" />
             </td>
         </tr>
         <tr>
             <th><label for="instagram-link">Instagram</label></th>
             <td>
-                <input type="text" name="instagram-link" id="instagram-link" value="<?php echo esc_attr( get_the_author_meta( 'instagram_link', $user->ID ) ); ?>" class="regular-text" />
-            </td>
-        </tr>
-        <tr>
-            <th><label for="facebook-link">Facebook</label></th>
-            <td>
-                <input type="text" name="facebook-link" id="facebook-link" value="<?php echo esc_attr( get_the_author_meta( 'facebook_link', $user->ID ) ); ?>" class="regular-text" />
+                <input type="text" name="instagram_link" id="instagram-link" value="<?php echo esc_attr( get_the_author_meta( 'instagram_link', $user->ID ) ); ?>" class="regular-text" />
             </td>
         </tr>
         <tr>
             <th><label for="x-link">X / Twitter</label></th>
             <td>
-                <input type="text" name="x-link" id="x-link" value="<?php echo esc_attr( get_the_author_meta( 'x_link', $user->ID ) ); ?>" class="regular-text" />
+                <input type="text" name="x_link" id="x-link" value="<?php echo esc_attr( get_the_author_meta( 'x_link', $user->ID ) ); ?>" class="regular-text" />
+            </td>
+        </tr>
+        <tr>
+            <th><label for="bluesky-link">Bluesky</label></th>
+            <td>
+                <input type="text" name="bluesky_link" id="bluesky-link" value="<?php echo esc_attr( get_the_author_meta( 'bluesky_link', $user->ID ) ); ?>" class="regular-text" />
             </td>
         </tr>
         <tr>
             <th><label for="mastodon-link">Mastodon</label></th>
             <td>
-                <input type="text" name="mastodon-link" id="mastodon-link" value="<?php echo esc_attr( get_the_author_meta( 'mastodon_link', $user->ID ) ); ?>" class="regular-text" />
+                <input type="text" name="mastodon_link" id="mastodon-link" value="<?php echo esc_attr( get_the_author_meta( 'mastodon_link', $user->ID ) ); ?>" class="regular-text" />
+            </td>
+        </tr>
+        <tr>
+            <th><label for="tiktok-link">TikTok</label></th>
+            <td>
+                <input type="text" name="tiktok_link" id="tiktok-link" value="<?php echo esc_attr( get_the_author_meta( 'tiktok_link', $user->ID ) ); ?>" class="regular-text" />
+            </td>
+        </tr>
+        <tr>
+            <th><label for="facebook-link">Facebook</label></th>
+            <td>
+                <input type="text" name="facebook_link" id="facebook-link" value="<?php echo esc_attr( get_the_author_meta( 'facebook_link', $user->ID ) ); ?>" class="regular-text" />
             </td>
         </tr>
     </table>
@@ -64,11 +76,13 @@ function save_social_media_fields($user_id) {
         return false;
     }
     
-    update_user_meta( $user_id, 'linkedin_link', $_POST['linkedin-link'] );
-    update_user_meta( $user_id, 'instagram_link', $_POST['instagram-link'] );
-    update_user_meta( $user_id, 'facebook_link', $_POST['facebook-link'] );
-    update_user_meta( $user_id, 'x_link', $_POST['x-link'] );
-    update_user_meta( $user_id, 'mastodon_link', $_POST['mastodon-link'] );
+    update_user_meta( $user_id, 'linkedin_link', esc_url_raw($_POST['linkedin_link'] ));
+    update_user_meta( $user_id, 'instagram_link', esc_url_raw($_POST['instagram_link'] ));
+    update_user_meta( $user_id, 'x_link', esc_url_raw($_POST['x_link'] ));
+    update_user_meta( $user_id, 'bluesky_link', esc_url_raw($_POST['bluesky_link'] ));
+    update_user_meta( $user_id, 'mastodon_link', esc_url_raw($_POST['mastodon_link'] ));
+    update_user_meta( $user_id, 'tiktok_link', esc_url_raw($_POST['tiktok_link'] ));
+    update_user_meta( $user_id, 'facebook_link', esc_url_raw($_POST['facebook_link'] ));
 }
 
 // Hook into the profile update actions
@@ -91,7 +105,7 @@ function get_author_social_media_link($platform) {
 }
 
 function register_social_media_shortcodes() {
-    $platforms = array('linkedin', 'instagram', 'facebook', 'x', 'mastodon', 'website');
+    $platforms = array('linkedin', 'instagram', 'x', 'bluesky', 'mastodon', 'tiktok', 'facebook', 'website');
     foreach ($platforms as $platform) {
         add_shortcode($platform . '_link', function() use ($platform) {
             return get_author_social_media_link($platform);

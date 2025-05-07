@@ -15,7 +15,9 @@
 include 'shlm-functionality-block-variations.php';
 include 'shlm-functionality-custom-post-types.php';
 include 'shlm-functionality-performance.php';
+include 'shlm-functionality-permissions.php';
 include 'shlm-functionality-post-meta.php';
 include 'shlm-functionality-profile-settings.php';
 include 'shlm-functionality-query-loops.php';
 include 'shlm-functionality-remove-unwanted-assets.php';
+include 'shlm-functionality-shortcodes.php';
