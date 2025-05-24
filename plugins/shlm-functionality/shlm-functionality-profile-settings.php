@@ -71,6 +71,13 @@ function add_social_media_fields($user) {
                 <input type="text" name="tumblr_link" id="tumblr-link" value="<?php echo esc_attr( get_the_author_meta( 'tumblr_link', $user->ID ) ); ?>" class="regular-text" />
             </td>
         </tr>
+        </tr>
+        <tr>
+            <th><label for="email-link">Email</label></th>
+            <td>
+                <input type="text" name="email_link" id="email-link" value="<?php echo esc_attr( get_the_author_meta( 'email_link', $user->ID ) ); ?>" class="regular-text" />
+            </td>
+        </tr>
     </table>
     <?php
 }
@@ -91,6 +98,7 @@ function save_social_media_fields($user_id) {
     update_user_meta( $user_id, 'tiktok_link', esc_url_raw($_POST['tiktok_link'] ));
     update_user_meta( $user_id, 'facebook_link', esc_url_raw($_POST['facebook_link'] ));
     update_user_meta( $user_id, 'tumblr_link', esc_url_raw($_POST['tumblr_link'] ));
+    update_user_meta( $user_id, 'email_link', esc_url_raw($_POST['email_link'] ));
 }
 
 // Hook into the profile update actions
@@ -113,7 +121,7 @@ function get_author_social_media_link($platform) {
 }
 
 function register_social_media_shortcodes() {
-    $platforms = array('linkedin', 'instagram', 'x', 'bluesky', 'mastodon', 'tiktok', 'facebook', 'tumblr', 'website');
+    $platforms = array('linkedin', 'instagram', 'x', 'bluesky', 'mastodon', 'tiktok', 'facebook', 'tumblr', 'website', 'email');
     foreach ($platforms as $platform) {
         add_shortcode($platform . '_link', function() use ($platform) {
             return get_author_social_media_link($platform);
