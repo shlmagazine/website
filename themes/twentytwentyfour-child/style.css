@@ -554,26 +554,6 @@ footer .wp-block-loginout a {
 	grid-area: 1 / 1 / span 6 / span 1;
 }
 
-.media-content .art-title {
-	grid-area: 1 / 2 / span 1 / span 1;
-}
-
-.media-content .art-medium {
-	grid-area: 2 / 2 / span 1 / span 1;
-}
-
-.media-content .author-art {
-	grid-area: 3 / 2 / span 1 / span 1;
-}
-
-.media-content .author-art-statement {
-	grid-area: 4 / 2 / span 1 / span 1;
-}
-
-.media-content .author-audio {
-	grid-area: 5 / 2 / span 1 / span 1;
-}
-
 @media only screen and (max-width: 1160px) {
 	.media-content {
 		grid-template-columns: 1fr 1fr;
