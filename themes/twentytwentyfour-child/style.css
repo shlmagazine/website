@@ -704,6 +704,7 @@ h2.team-member__name {
 
 .wp-block-post-author__byline {
 	font-size: 0.75em;
+	color: var(--color--red);
 }
 
 .author--center {
