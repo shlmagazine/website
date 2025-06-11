@@ -712,11 +712,11 @@ h2.team-member__name {
 }
 
 /* Post info */
-.wp-block-post-date {
+.single-post .wp-block-post-date {
 	margin-block-end: -1rem !important;
 }
 
-.wp-block-post-date > time {
+.single-post .wp-block-post-date > time {
 	font-family: var(--font-family__h);
 }
 
