@@ -373,6 +373,10 @@ img,
 }
 
 /* || Layout */
+main#wp--skip-link--target {
+    margin-block-start: var(--wp--preset--spacing--50);
+}
+
 .grid__columns--2 {
     display: -ms-grid;
     display: grid;
