@@ -581,7 +581,11 @@ footer .wp-block-loginout a {
 }
 
 @media only screen and (max-width: 1160px) {
-	.media-content {
+	.art-meta > .prefix {
+        margin-block-start: 1rem;
+    }
+    
+    .media-content {
 		grid-template-columns: 1fr 1fr;
 	}
 
