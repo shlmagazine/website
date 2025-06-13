@@ -570,12 +570,14 @@ body:not(.page) .entry-content > pre:last-of-type::after {
 	display: grid;
 	grid-area: 1 / 2;
 	gap: 1rem;
-	height: 0;
+	-webkit-filter: opacity(70%);
 	filter: opacity(70%);
+	height: 0;
 }
 
 .media-content .art-meta:hover {
-	filter: opacity(100%);
+	-webkit-filter: opacity(100%);
+    filter: opacity(100%);
 }
 
 .media-content .art-meta .wp-block-mfb-meta-field-block {
