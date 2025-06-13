@@ -718,16 +718,16 @@ h2.team-member__name {
 }
 
 /* Post info */
-.single-post .wp-block-post-date {
-	margin-block-end: -1rem !important;
-}
-
-.single-post .wp-block-post-date > time {
+.wp-block-post-date > time {
 	font-family: var(--font-family__h);
 }
 
-.row-date {
+.row-date .wp-block-post-date > time {
+	font-family: var(--font-family__body);
 	font-style: italic;
+}
+.single-post .wp-block-post-date {
+	margin-block-end: -1rem !important;
 }
 
 /* Bio box */
