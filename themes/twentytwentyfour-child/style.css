@@ -367,6 +367,7 @@ img,
 	margin-block: inherit;
 }
 
+/* Remove empty space below short featured images */
 .art-meta:not(:first-of-type) > .prefix {
 	margin-block-start: 1rem;
 }
@@ -559,6 +560,7 @@ footer .wp-block-loginout a {
 	margin-bottom: 4rem;
 }
 
+/* Remove empty space below short featured images */
 .media-content:has(.art-meta) {
 	row-gap: 0;
 }
