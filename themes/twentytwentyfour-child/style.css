@@ -722,10 +722,14 @@ h2.team-member__name {
 	font-family: var(--font-family__h);
 }
 
-.row-date .wp-block-post-date > time {
-	font-family: var(--font-family__body);
+.row-date {
 	font-style: italic;
 }
+
+.row-date .wp-block-post-date > time {
+	font-family: var(--font-family__body);
+}
+
 .single-post .wp-block-post-date {
 	margin-block-end: -1rem !important;
 }
