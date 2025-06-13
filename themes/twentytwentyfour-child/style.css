@@ -363,7 +363,7 @@ img,
 }
 
 /* || Layout */
-main#wp--skip-link--target {
+body:not(.home) main#wp--skip-link--target {
     margin-block-start: var(--wp--preset--spacing--50);
 }
 
