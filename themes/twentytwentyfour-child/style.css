@@ -534,18 +534,13 @@ footer .wp-block-loginout a {
 	margin-block-start: 0;
 }
 
-.entry-content > p:last-of-type::after,
-.entry-content > pre:last-of-type::after {
+body:not(.page) .entry-content > p:last-of-type::after,
+body:not(.page) .entry-content > pre:last-of-type::after {
 	content: url('data:image/svg+xml,<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><path fill="%237b0828" d="M241.72 458.453L27.906 26.339l213.763 113.846v318.268h.053zm15.266 36.4l239.221-483.46c1.922-3.842.32-8.592-3.576-10.514-2.348-1.174-5.017-1.014-7.152.16L249.567 126.628 13.708.986 2.98 11.394l239.595 484.154h.053c1.281 2.615 3.897 4.376 6.992 4.376 3.256.054 6.192-1.974 7.366-5.07z"/></svg>');
 	display: inline-block;
 	width: 1.6ex;
 	height: auto;
 	margin-inline-start: 0.25em;
-}
-
-.page .entry-content > p:last-of-type::after,
-.page .entry-content > pre:last-of-type::after {
-	content: none;
 }
 
 .media-content {
