@@ -150,8 +150,9 @@ nav li {
     margin-inline-start: initial;
 }
 
-em {
+em, i {
     font-size: inherit;
+	line-height: inherit;
 }
 
 h1,
