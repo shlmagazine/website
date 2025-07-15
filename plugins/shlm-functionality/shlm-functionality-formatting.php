@@ -5,7 +5,7 @@ function cmos_ellipsis_everywhere($text) {
     // - "..." (not part of "....")
     // - "…"
     // - any variant with spaces (e.g., ". . .", " . . . ", etc.)
-    return preg_replace('/(?<!\.)\.{3}(?!\.)|…|...|\s?\.\s\.\s\.\s?/u', '&nbsp;.&nbsp;.&nbsp;.', $text);
+    return preg_replace('/(?<!\.)\.{3}(?!\.)|…|\.\.\.|\s?\.\s\.\s\.\s?/u', '&nbsp;.&nbsp;.&nbsp;.', $text);
 }
 
 add_filter('the_content', 'cmos_ellipsis_everywhere', 12);
