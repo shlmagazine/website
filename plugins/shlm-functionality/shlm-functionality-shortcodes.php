@@ -1,4 +1,10 @@
 <?php
+// Shortcode for adding a CMOS-compliant ellipsis, featuring nonbreaking spaces
+function cmos_ellipsis_shortcode() {
+    return '&nbsp;.&nbsp;.&nbsp;.';
+}
+add_shortcode( 'cmos_ellipsis', 'cmos_ellipsis_shortcode' );
+
 // Enable shortcode parsing in Custom HTML blocks, for social media links in author bio boxes
 function parse_shortcodes_in_custom_html_blocks($block_content, $block) {
     // Check if this is a Custom HTML block (core/html block)
