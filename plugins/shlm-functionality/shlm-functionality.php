@@ -14,6 +14,7 @@
 
 include 'shlm-functionality-block-variations.php';
 include 'shlm-functionality-custom-post-types.php';
+include 'shlm-functionality-formatting.php';
 include 'shlm-functionality-performance.php';
 include 'shlm-functionality-permissions.php';
 include 'shlm-functionality-post-meta.php';
