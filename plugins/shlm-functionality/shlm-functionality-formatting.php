@@ -16,7 +16,7 @@ add_filter('widget_text', 'cmos_ellipsis_everywhere', 12);
 function replace_ellipsis_after_texturize($text) {
     return str_replace('…', '&nbsp;.&nbsp;.&nbsp;.', $text);
 }
-add_filter('the_content', 'replace_ellipsis_after_texturize', 5);
-add_filter('the_excerpt', 'replace_ellipsis_after_texturize', 5);
-add_filter('comment_text', 'replace_ellipsis_after_texturize', 5);
-add_filter('widget_text', 'replace_ellipsis_after_texturize', 5);
+add_filter('the_content', 'replace_ellipsis_after_texturize', 20);
+add_filter('the_excerpt', 'replace_ellipsis_after_texturize', 20);
+add_filter('comment_text', 'replace_ellipsis_after_texturize', 20);
+add_filter('widget_text', 'replace_ellipsis_after_texturize', 20);
