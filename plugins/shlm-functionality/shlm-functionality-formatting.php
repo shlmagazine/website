@@ -4,7 +4,7 @@ function cmos_ellipses_everywhere($text) {
     return preg_replace_callback(
         // Match line-start (start of string, <br>, or \n)
         // Then match: "....", "…", "...", ". . ."
-        '/(?:(?<=^)|(?<=<br\s*\/?>)|(?<=\n))(\s*)(\.{4}|\.{3}|…|\.\s\.\s\.)(?!\.)|(\.{4}|\.{3}|…|\.\s\.\s\.)(?!\.)/iu',
+        '/(^|\n|<br\s*\/?>)?\s*(\.{4}|\.{3}|…|\.\s\.\s\.)(?!\.)/',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $trailing_dot = '';
