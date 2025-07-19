@@ -19,7 +19,7 @@ function cmos_ellipses_everywhere($text) {
 
             if (!empty($matches[2])) {
                 // Line-start version (no leading nbsp)
-                return $base_ellipsis . $trailing_dot;
+                return $base_ellipsis . $trailing_dot . '&nbsp;';
             } elseif (!empty($matches[3])) {
                 // Mid-line version (leading nbsp)
                 return '&nbsp;' . $base_ellipsis . $trailing_dot;
