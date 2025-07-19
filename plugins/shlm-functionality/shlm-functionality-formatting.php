@@ -31,6 +31,7 @@ function cmos_ellipses_everywhere($text) {
     );
 }
 add_filter('the_title', 'cmos_ellipses_everywhere', 12);
+add_filter('wp_title', 'cmos_ellipses_everywhere', 12);
 add_filter('pre_get_document_title', 'cmos_ellipses_everywhere', 12);
 add_filter('the_content', 'cmos_ellipses_everywhere', 12);
 
