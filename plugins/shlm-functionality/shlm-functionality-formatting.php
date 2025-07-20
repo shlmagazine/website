@@ -1,11 +1,14 @@
 <?php
 // Replace many ellipses variants with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
+    global $cmos_ellipses_text;
+    $cmos_ellipses_text = $text; // Save for reference
+
     $base_ellipsis = '.&nbsp;.&nbsp;.';
 
-    // Pass 1: Ellipses alone on line, possibly wrapped in quotes
+    // Pass 1: Ellipses alone on a line, possibly in quotes
     $text = preg_replace_callback(
-        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/',
+        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/u',
         function ($matches) use ($base_ellipsis) {
             $trailing_dot = '';
             $ellipsis = trim($matches[3]);
@@ -22,11 +25,19 @@ function cmos_ellipses_everywhere($text) {
         $text
     );
 
-    // Pass 2: Normal inline ellipses (NOT alone on line)
+    // Pass 2: Inline ellipses (not alone on line)
     $text = preg_replace_callback(
-        '/(?<!\.)\.{3}(?!\.)|…|\.\s\.\s\./',
-        function () use ($base_ellipsis) {
-            return '&nbsp;' . $base_ellipsis;
+        '/(?<!\.)\.{3}(?!\.)|…|\.\s\.\s\./u',
+        function ($m) use ($base_ellipsis) {
+            // Check match offset using global reference
+            $match = $m[0];
+            $pos = strpos($GLOBALS['cmos_ellipses_text'], $match);
+
+            if ($pos === 0 || preg_match('/(\n|<br\s*\/?>)\s*$/u', substr($GLOBALS['cmos_ellipses_text'], 0, $pos))) {
+                return $base_ellipsis;
+            } else {
+                return '&nbsp;' . $base_ellipsis;
+            }
         },
         $text
     );
