@@ -1,14 +1,11 @@
 <?php
 // Replace many ellipses variants with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
-    global $cmos_ellipses_text;
-    $cmos_ellipses_text = $text; // Save for reference
-
     $base_ellipsis = '.&nbsp;.&nbsp;.';
 
-    // Pass 1: Ellipses alone on a line, possibly in quotes
+    // Pass 1: Ellipses alone or at line start (possibly wrapped in quotes)
     $text = preg_replace_callback(
-        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/',
+        '/(^|\n|<br\s*\/?>)\s*(["“”‘’\']?)\s*(\.{3,4}|…|\.\s\.\s\.)\s*(["“”‘’\']?)(?=$|\n|<br\s*\/?>)/',
         function ($matches) use ($base_ellipsis) {
             $trailing_dot = '';
             $ellipsis = trim($matches[3]);
@@ -20,24 +17,18 @@ function cmos_ellipses_everywhere($text) {
             $open_quote = $matches[2] ?? '';
             $close_quote = $matches[4] ?? '';
 
-            return $open_quote . $base_ellipsis . $trailing_dot . $close_quote;
+            return $matches[1] . $open_quote . $base_ellipsis . $trailing_dot . $close_quote;
         },
         $text
     );
 
-    // Pass 2: Inline ellipses (not alone on line)
+    // Pass 2: Inline ellipses (not preceded by a dot, newline, or <br>)
     $text = preg_replace_callback(
-        '/(?<!\.)\.{3}(?!\.)|…|\.\s\.\s\./',
-        function ($m) use ($base_ellipsis) {
-            // Check match offset using global reference
-            $match = $m[0];
-            $pos = strpos($GLOBALS['cmos_ellipses_text'], $match);
-
-            if ($pos === 0 || preg_match('/(\n|<br\s*\/?>)\s*$/u', substr($GLOBALS['cmos_ellipses_text'], 0, $pos))) {
-                return $base_ellipsis;
-            } else {
-                return '&nbsp;' . $base_ellipsis;
-            }
+        '/(?<![\.\n\r>])(\.{3,4}|…|\.\s\.\s\.)(?!\.)/',
+        function ($matches) use ($base_ellipsis) {
+            $ellipsis = trim($matches[1]);
+            $trailing_dot = ($ellipsis === '....') ? '.' : '';
+            return '&nbsp;' . $base_ellipsis . $trailing_dot;
         },
         $text
     );
