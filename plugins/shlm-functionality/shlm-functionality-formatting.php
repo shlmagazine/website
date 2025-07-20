@@ -7,7 +7,7 @@ function cmos_ellipses_everywhere($text) {
         // Then one of: ...., ..., …, or . . .
         // Then optional closing quote and whitespace
         // End of line or <br> ensures it's alone on line
-        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…\s?|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/u',
+        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…\s?|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $trailing_dot = '';
