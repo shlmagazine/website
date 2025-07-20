@@ -8,7 +8,7 @@ function cmos_ellipses_everywhere($text) {
 
     // Pass 1: Ellipses alone on a line, possibly in quotes
     $text = preg_replace_callback(
-        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/u',
+        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/',
         function ($matches) use ($base_ellipsis) {
             $trailing_dot = '';
             $ellipsis = trim($matches[3]);
@@ -27,7 +27,7 @@ function cmos_ellipses_everywhere($text) {
 
     // Pass 2: Inline ellipses (not alone on line)
     $text = preg_replace_callback(
-        '/(?<!\.)\.{3}(?!\.)|…|\.\s\.\s\./u',
+        '/(?<!\.)\.{3}(?!\.)|…|\.\s\.\s\./',
         function ($m) use ($base_ellipsis) {
             // Check match offset using global reference
             $match = $m[0];
