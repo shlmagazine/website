@@ -3,31 +3,27 @@
 function cmos_ellipses_everywhere($text) {
     $base_ellipsis = '.&nbsp;.&nbsp;.';
 
-    // Pass 1: Ellipses alone or at line start (possibly wrapped in quotes)
+    // Pass 1: Ellipses at line-start or alone on line
     $text = preg_replace_callback(
-        '/(^|\n|<br\s*\/?>)\s*(["“”‘’\']?)\s*(\.{3,4}|…|\.\s\.\s\.)\s*(["“”‘’\']?)(?=$|\n|<br\s*\/?>)/',
+        '/(^|\n|<br\s*\/?>)\s*(["“”‘’\'"]?)\s*(\.{3,4}|…|\.\s\.\s\.)(?!\.)\s*(["“”‘’\'"]?)(?=$|\n|<br\s*\/?>)/',
         function ($matches) use ($base_ellipsis) {
-            $trailing_dot = '';
-            $ellipsis = trim($matches[3]);
+            $line_start     = $matches[1]; // newline or <br>
+            $open_quote     = $matches[2] ?? '';
+            $ellipsis_token = trim($matches[3]);
+            $close_quote    = $matches[4] ?? '';
+            $trailing_dot   = ($ellipsis_token === '....') ? '.' : '';
 
-            if ($ellipsis === '....') {
-                $trailing_dot = '.';
-            }
-
-            $open_quote = $matches[2] ?? '';
-            $close_quote = $matches[4] ?? '';
-
-            return $matches[1] . $open_quote . $base_ellipsis . $trailing_dot . $close_quote;
+            return $line_start . $open_quote . $base_ellipsis . $trailing_dot . $close_quote;
         },
         $text
     );
 
-    // Pass 2: Inline ellipses (not preceded by a dot, newline, or <br>)
+    // Pass 2: Inline ellipses — ensure leading &nbsp;
     $text = preg_replace_callback(
         '/(?<![\.\n\r>])(\.{3,4}|…|\.\s\.\s\.)(?!\.)/',
         function ($matches) use ($base_ellipsis) {
-            $ellipsis = trim($matches[1]);
-            $trailing_dot = ($ellipsis === '....') ? '.' : '';
+            $ellipsis_token = trim($matches[1]);
+            $trailing_dot = ($ellipsis_token === '....') ? '.' : '';
             return '&nbsp;' . $base_ellipsis . $trailing_dot;
         },
         $text
