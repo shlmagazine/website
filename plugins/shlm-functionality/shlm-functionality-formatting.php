@@ -4,10 +4,12 @@ function cmos_ellipses_everywhere($text) {
     return preg_replace_callback(
         // Match line-start (start of string, <br>, or \n)
         // Then match: "....", "…", "...", ". . ."
-        '/(^|\n|<br\s*\/?>)?\s*(\.{4}|\.{3}|…|…\s|\.\s\.\s\.)(?!\.)/',
+        '/(^|\n|<br\s*\/?>)?\s*(\.{4}|\.{3}|…\s|…|\.\s\.\s\.)(?!\.)/',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $trailing_dot = '';
+
+            $ellipsis = trim($matches[2]);
             
             // If matched "....", add an extra literal period
             if (isset($matches[2]) && $matches[2] === '....') {
