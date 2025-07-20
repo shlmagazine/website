@@ -2,32 +2,26 @@
 // Replace many ellipses variants with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
     return preg_replace_callback(
-        // Match line-start (start of string, <br>, or \n)
-        // Then match: "....", "…", "...", ". . ."
-        '/(^|\n|<br\s*\/?>)?\s*(\.{4}|\.{3}|…\s|…|\.\s\.\s\.)(?!\.)/',
+        // Match line-start context: start of string, \n, or <br>
+        // Then optional whitespace and optional quotes
+        // Then one of: ...., ..., …, or . . .
+        // Then optional closing quote and whitespace
+        // End of line or <br> ensures it's alone on line
+        '/(^|\n|<br\s*\/?>)?\s*(["“”‘’\']?)\s*(\.{4}|\.{3}|…\s?|…|\.\s\.\s\.)\s*(["“”‘’\']?)\s*(?=$|\n|<br\s*\/?>)/u',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $trailing_dot = '';
+            $open_quote  = $matches[2] ?? '';
+            $raw_ellipsis = trim($matches[3] ?? '');
+            $close_quote = $matches[4] ?? '';
 
-            $ellipsis = trim($matches[2]);
-            
-            // If matched "....", add an extra literal period
-            if (isset($matches[2]) && $matches[2] === '....') {
-                $trailing_dot = '.';
-            }
-            if (isset($matches[3]) && $matches[3] === '....') {
+            // Handle "...."
+            if ($raw_ellipsis === '....') {
                 $trailing_dot = '.';
             }
 
-            if (!empty($matches[2])) {
-                // Line-start version (no leading nbsp)
-                return $base_ellipsis . $trailing_dot . '&nbsp;';
-            } elseif (!empty($matches[3])) {
-                // Mid-line version (leading nbsp)
-                return '&nbsp;' . $base_ellipsis . $trailing_dot;
-            } else {
-                return $matches[0]; // fallback
-            }
+            // Case: ellipsis is the only thing on the line (possibly wrapped in quotes)
+            return $open_quote . $base_ellipsis . $trailing_dot . $close_quote;
         },
         $text
     );
