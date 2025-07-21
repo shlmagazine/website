@@ -19,9 +19,10 @@ function cmos_ellipses_everywhere($text) {
             return match (true) {
                 isset($matches[1]) => $nbsp . $base_ellipsis . $nbsp . $matches[2],
                 isset($matches[3]) => '“' . $base_ellipsis . '”',
-                isset($matches[4]) || isset($matches[9]) => $base_ellipsis,
+                isset($matches[4]) => $base_ellipsis,
                 isset($matches[5]) => $base_ellipsis . $nbsp . $matches[6],
                 isset($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8],
+                isset($matches[9]) => $base_ellipsis,
                 default => $matches[0], // fallback
             };
         },
