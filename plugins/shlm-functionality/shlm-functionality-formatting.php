@@ -2,34 +2,28 @@
 // Replace ellipsis characters with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
     return preg_replace_callback(
-        // Group 1: Ellipsis is the only character on a line, wrapped in quotes
-        // Group 2: Ellipsis is the only character on a line
-        // Group 3: Ellipsis begins a line
-        // Group 4: Group 3's following character
-        // Group 5: An opening quote mark and an ellipsis begin a line
+        // Group 1: Ellipsis is followed by a punctuation mark (except a closing quote mark)
+        // Group 2: Group 1's punctuation mark
+        // Group 3: Ellipsis is the only character on a line, except quote marks
+        // Group 4: Ellipsis is the only character on a line
+        // Group 5: Ellipsis begins a line
         // Group 6: Group 5's following character
-        // Group 7: Ellipsis is followed by punctuation (except closing quote mark)
-        // Group 8: Group 7's punctuation mark
+        // Group 7: An opening quote mark and an ellipsis begin a line
+        // Group 8: Group 7's following character
         // Group 9: All other ellipsis cases
-        '/(^“ *… *”$)              # Group 1
-        | (^ *… *$)               # Group 2
-        | (^ *… *(.))             # Group 3, 4
-        | (^\W *… *(.))           # Group 5, 6
-        | ( *… *([^a-zA-Z0-9”\s]))# Group 7, 8
-        | ( *…)                   # Group 9
-        /mx',
+        '/( *… *([^a-zA-Z0-9”\s]))|(^“ *… *”$)|(^ *… *$)|(^ *… *(.))|(^\W *… *(.))|( *…)/m',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
 
             return match (true) {
-                isset($matches[1]) => '“' . $base_ellipsis . '”' . ' g1', // quoted line
-                isset($matches[2]) => $base_ellipsis . ' g2',             // just ellipsis on a line
-                isset($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3', // line-start
-                isset($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5', // quote + start
-                isset($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7', // punctuation follows
-                isset($matches[9]) => preg_replace('~…~', $base_ellipsis, $matches[9]) . ' g9', // fallback
-                default => $matches[0] . ' g0', // shouldn’t happen
+                isset($matches[1]) => $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1',
+                isset($matches[3]) => '“' . $base_ellipsis . '”' . ' g3',
+                isset($matches[4]) => $base_ellipsis . ' g4',
+                isset($matches[5]) => $base_ellipsis . $nbsp . $matches[6] . ' g5',
+                isset($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7',
+                isset($matches[9]) => $base_ellipsis . ' g9',
+                default => $matches[0] . ' g0', // fallback
             };
         },
         $text
