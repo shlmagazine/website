@@ -29,9 +29,12 @@ function cmos_ellipses_everywhere($text) {
         $text
     );
 }
-add_filter('the_title', 'cmos_ellipses_everywhere', 12);
-add_filter('the_content', 'cmos_ellipses_everywhere', 12);
-add_filter('pre_get_document_title', 'cmos_ellipses_everywhere', 20);
+function cmos_ellipses_conditionally() {
+    if (is_page('brand')) {
+        add_filter('the_content', 'cmos_ellipses_everywhere');
+    }
+}
+add_action('template_redirect', 'cmos_ellipses_conditionally');
 
 // function replace_ellipsis_after_texturize($text) {
 //     return str_replace('…', '&nbsp;.&nbsp;.&nbsp;.', $text);
