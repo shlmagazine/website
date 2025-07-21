@@ -13,7 +13,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 9: All other ellipsis cases
         '/(“ *… *”)|(^ *… *$)|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
         function ($matches) {
-            return '<pre>' . print_r($matches, true) . '</pre>';
+            // return '<pre>' . print_r($matches, true) . '</pre>';
 
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
