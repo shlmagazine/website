@@ -1,31 +1,29 @@
 <?php
-// Replace many ellipses variants with CMOS-compliant version
+// Replace ellipsis characters with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
     return preg_replace_callback(
-        // Match line-start (start of string, <br>, or \n)
-        // Then match: "....", "…", "...", ". . ."
-        '/(^|\n|<br\s*\/?>)?\s*(\.{4}|\.{3}|…|\.\s\.\s\.)(?!\.)/',
+        // Group 1: Ellipsis is followed by a punctuation mark (except a closing quote mark)
+        // Group 2: Group 1's punctuation mark
+        // Group 3: Ellipsis is the only character on a line, except quote marks
+        // Group 4: Ellipsis is the only character on a line
+        // Group 5: Ellipsis begins a line
+        // Group 6: Group 5's following character
+        // Group 7: An opening quote mark and an ellipsis begin a line
+        // Group 8: Group 7's following character
+        // Group 9: All other ellipsis cases
+        '/( *… *([^a-zA-Z0-9”\s]))|(^“ *… *”$)|(^ *… *$)|(^ *… *(.))|(^\W *… *(.))|( *…)/m',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
-            $trailing_dot = '';
-            
-            // If matched "....", add an extra literal period
-            if (isset($matches[2]) && $matches[2] === '....') {
-                $trailing_dot = '.';
-            }
-            if (isset($matches[3]) && $matches[3] === '....') {
-                $trailing_dot = '.';
-            }
+            $nbsp = '&nbsp;';
 
-            if (!empty($matches[2])) {
-                // Line-start version (no leading nbsp)
-                return $base_ellipsis . $trailing_dot . '&nbsp;';
-            } elseif (!empty($matches[3])) {
-                // Mid-line version (leading nbsp)
-                return '&nbsp;' . $base_ellipsis . $trailing_dot;
-            } else {
-                return $matches[0]; // fallback
-            }
+            return match (true) {
+                isset($matches[1]) => $nbsp . $base_ellipsis . $nbsp . $matches[2],
+                isset($matches[3]) => '“' . $base_ellipsis . '”',
+                isset($matches[4]) || isset($matches[9]) => $base_ellipsis,
+                isset($matches[5]) => $base_ellipsis . $nbsp . $matches[6],
+                isset($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8],
+                default => $matches[0], // fallback
+            };
         },
         $text
     );
