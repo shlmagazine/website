@@ -38,8 +38,8 @@ function cmos_ellipses_everywhere($text) {
                     return '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7';
                 case !empty($matches[9]):
                     return $base_ellipsis . ' g9';
-                default:
-                    return $matches[0] . ' g0'; // fallback
+                // default:
+                //     return $matches[0] . ' g0'; // fallback
             };
         },
         $text
