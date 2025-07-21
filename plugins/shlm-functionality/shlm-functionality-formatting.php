@@ -17,12 +17,12 @@ function cmos_ellipses_everywhere($text) {
             $nbsp = '&nbsp;';
 
             return match (true) {
-                isset($matches[1]) => '“' . $base_ellipsis . '”' . ' g3',
-                isset($matches[2]) => $nbsp . $base_ellipsis . $nbsp . $matches[3] . ' g1',
-                isset($matches[4]) => $base_ellipsis . ' g4',
-                isset($matches[5]) => $base_ellipsis . $nbsp . $matches[6] . ' g5',
-                isset($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7',
-                isset($matches[9]) => $base_ellipsis . ' g9',
+                !empty($matches[1]) => '“' . $base_ellipsis . '”' . ' g3',
+                !empty($matches[2]) => $nbsp . $base_ellipsis . $nbsp . $matches[3] . ' g1',
+                !empty($matches[4]) => $base_ellipsis . ' g4',
+                !empty($matches[5]) => $base_ellipsis . $nbsp . $matches[6] . ' g5',
+                !empty($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7',
+                !empty($matches[9]) => $base_ellipsis . ' g9',
                 default => $matches[0] . ' g0', // fallback
             };
         },
