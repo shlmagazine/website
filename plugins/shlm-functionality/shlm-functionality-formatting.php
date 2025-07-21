@@ -11,7 +11,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 7: An opening quote mark and an ellipsis begin a line
         // Group 8: Group 7's following character
         // Group 9: All other ellipsis cases
-        '/( *… *([^a-zA-Z0-9”\s]))|(^“ *… *”$)|(^ *… *$)|(^ *… *(.))|(^\W *… *(.))|( *…)/',
+        '/( *… *([^a-zA-Z0-9”\s]))|<p>(^“ *… *”$)<\/p>|(^ *… *$)|(^ *… *([^<]))|(^\W *… *([^<]))|( *…)/',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
@@ -26,8 +26,8 @@ function cmos_ellipses_everywhere($text) {
             //     default => $matches[0] . ' g0', // fallback
             // };
             switch (true) {
-                // case !empty($matches[1]):
-                //     return $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1';
+                case !empty($matches[1]):
+                    return $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1';
                 case !empty($matches[3]):
                     return '“' . $base_ellipsis . '”' . ' g3';
                 case !empty($matches[4]):
@@ -38,8 +38,8 @@ function cmos_ellipses_everywhere($text) {
                     return '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7';
                 case !empty($matches[9]):
                     return $base_ellipsis . ' g9';
-                // default:
-                //     return $matches[0] . ' g0'; // fallback
+                default:
+                    return $matches[0] . ' g0'; // fallback
             };
         },
         $text
