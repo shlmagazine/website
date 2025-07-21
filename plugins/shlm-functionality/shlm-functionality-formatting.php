@@ -17,8 +17,8 @@ function cmos_ellipses_everywhere($text) {
             $nbsp = '&nbsp;';
 
             return match (true) {
-                isset($matches[1]) => $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1',
-                isset($matches[3]) => '“' . $base_ellipsis . '”' . ' g3',
+                isset($matches[1]) => '“' . $base_ellipsis . '”' . ' g3',
+                isset($matches[2]) => $nbsp . $base_ellipsis . $nbsp . $matches[3] . ' g1',
                 isset($matches[4]) => $base_ellipsis . ' g4',
                 isset($matches[5]) => $base_ellipsis . $nbsp . $matches[6] . ' g5',
                 isset($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7',
