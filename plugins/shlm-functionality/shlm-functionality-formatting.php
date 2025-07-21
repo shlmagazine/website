@@ -26,8 +26,8 @@ function cmos_ellipses_everywhere($text) {
             //     default => $matches[0] . ' g0', // fallback
             // };
             switch (true) {
-                case !empty($matches[1]):
-                    return $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1';
+                // case !empty($matches[1]):
+                //     return $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1';
                 case !empty($matches[3]):
                     return '“' . $base_ellipsis . '”' . ' g3';
                 case !empty($matches[4]):
