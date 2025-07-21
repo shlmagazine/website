@@ -11,7 +11,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 7: An opening quote mark and an ellipsis begin a line
         // Group 8: Group 7's following character
         // Group 9: All other ellipsis cases
-        '/(^“ *… *”$)|(^ *… *$)|(^ *… *(.))|(^\W *… *(.))|( *… *([^a-zA-Z0-9”\s]))|( *…)/m',
+        '/(^“ *… *”$)|(^ *… *$)|(^ *… *(.))|(^\W *… *(.))|( *… *([.,:;?!]))|( *…)/m',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
