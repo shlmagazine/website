@@ -11,7 +11,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 7: Ellipsis is followed by a punctuation mark
         // Group 8: Group 7's punctuation mark
         // Group 9: All other ellipsis cases
-        '/(“ *… *”)|((<.*>) *… *(<\/.*>))|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
+        '/(?<alone_with_quotes>“ *… *”)|(?<alone_on_line>(?<alone_on_line_start_tag><.*>) *… *(?<alone_on_line_end_tag><\/.*>))|(?<start_of_line>^ *… *(.))|(?<start_of_quote>^“ *… *(.))|(?<punctuation> *… *([.,:;?!]))|(?<general> *…)/m',
         function ($matches) {
             // return '<pre>' . print_r($matches, true) . '</pre>';
 
