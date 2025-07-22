@@ -21,7 +21,7 @@ function cmos_ellipses_everywhere($text) {
             // TODO: group only the ellipses, trim extra space, use preg_replace and ~…~ to surgically replace just the ellipses
 
             return match (true) {
-                !empty($matches[1]) => preg_replace('~…~', $base_ellipsis, trim($matches[2])) . ' g1',
+                !empty($matches[1]) => preg_replace('~…~', $base_ellipsis, trim($matches[1])) . ' g1',
                 // !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
                 // !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
                 // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
