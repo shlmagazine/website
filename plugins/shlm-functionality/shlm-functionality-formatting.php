@@ -11,7 +11,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 7: Ellipsis is followed by a punctuation mark
         // Group 8: Group 7's punctuation mark
         // Group 9: All other ellipsis cases
-        '/(“ *… *”)|((<.*>) *… *(<\/.*>))|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
+        '/(“( *… *)”)|((<.*>) *… *(<\/.*>))|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
         function ($matches) {
             // return '<pre>' . print_r($matches, true) . '</pre>';
 
@@ -22,12 +22,12 @@ function cmos_ellipses_everywhere($text) {
 
             return match (true) {
                 !empty($matches[1]) => '“' . $base_ellipsis . '”' . ' g1',
-                !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
-                !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
-                !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
-                !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
-                !empty($matches[9]) => $base_ellipsis . ' g9',
-                default => $matches[0] . ' g0', // fallback
+                // !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
+                // !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
+                // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
+                // !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
+                // !empty($matches[9]) => $base_ellipsis . ' g9',
+                // default => $matches[0] . ' g0', // fallback
             };
         },
         $text
