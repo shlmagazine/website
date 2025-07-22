@@ -11,7 +11,7 @@ function cmos_ellipses_everywhere($text) {
         // Group 7: Ellipsis is followed by a punctuation mark
         // Group 8: Group 7's punctuation mark
         // Group 9: All other ellipsis cases
-        '/(“( *… *)”)|((<.*>) *… *(<\/.*>))|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
+        '/(“ *… *”)|((<.*>) *… *(<\/.*>))|(^ *… *(.))|(^“ *… *(.))|( *… *([.,:;?!]))|( *…)/m',
         function ($matches) {
             // return '<pre>' . print_r($matches, true) . '</pre>';
 
@@ -21,7 +21,7 @@ function cmos_ellipses_everywhere($text) {
             // TODO: group only the ellipses, trim extra space, use preg_replace and ~…~ to surgically replace just the ellipses
 
             return match (true) {
-                !empty($matches[1]) => preg_replace('~…~', $base_ellipsis, trim($matches[1])) . ' g1',
+                !empty($matches[1]) => '“' . $base_ellipsis . '”' . ' g1',
                 // !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
                 // !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
                 // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
