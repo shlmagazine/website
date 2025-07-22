@@ -27,21 +27,17 @@ function cmos_ellipses_everywhere($text) {
             //     // !empty($matches[9]) => $base_ellipsis . ' g9',
             //     default => $matches[0] . ' g0', // fallback
             // };
-            switch (true) {
-                case !empty($matches[1]):
-                    return '“' . $base_ellipsis . '”' . ' g1';
-                case !empty($matches[2]):
-                    return $matches[3] . $base_ellipsis . $matches[4] . ' g2';
-                // case !empty($matches[3]):
-                //     return $base_ellipsis . $nbsp . $matches[4] . ' g3';
-                // case !empty($matches[5]):
-                //     return '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5';
-                // case !empty($matches[7]):
-                //     return $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7';
-                // case !empty($matches[9]):
-                //     return $base_ellipsis . ' g9';
-                default:
-                    return $matches[0] . ' g0'; // fallback
+
+            // TODO: group only the ellipses, trim extra space, use preg_replace and ~…~ to surgically replace just the ellipses
+
+            return match (true) {
+                !empty($matches[1]) => '“' . $base_ellipsis . '”' . ' g1',
+                !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
+                !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
+                !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
+                !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
+                !empty($matches[9]) => $base_ellipsis . ' g9',
+                default => $matches[0] . ' g0', // fallback
             };
         },
         $text
