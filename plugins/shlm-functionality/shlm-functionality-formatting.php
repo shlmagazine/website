@@ -18,16 +18,6 @@ function cmos_ellipses_everywhere($text) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
 
-            // return match (true) {
-            //     !empty($matches[1]) => $nbsp . $base_ellipsis . $nbsp . $matches[2] . ' g1',
-            //     !empty($matches[3]) => '“' . $base_ellipsis . '”' . ' g3',
-            //     !empty($matches[4]) => $base_ellipsis . ' g4',
-            //     !empty($matches[5]) => $base_ellipsis . $nbsp . $matches[6] . ' g5',
-            //     !empty($matches[7]) => '“' . $base_ellipsis . $nbsp . $matches[8] . ' g7',
-            //     // !empty($matches[9]) => $base_ellipsis . ' g9',
-            //     default => $matches[0] . ' g0', // fallback
-            // };
-
             // TODO: group only the ellipses, trim extra space, use preg_replace and ~…~ to surgically replace just the ellipses
 
             return match (true) {
