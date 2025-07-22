@@ -1,17 +1,41 @@
 <?php
 // Replace ellipsis characters with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
-    return preg_replace_callback(
-        // Group 1: Ellipsis is the only character on a line, except quote marks
-        // Group 2: Ellipsis is the only character on a line
-        // Group 3: Ellipsis begins a line
-        // Group 4: Group 3's following character
-        // Group 5: An opening quote mark and an ellipsis begin a line
-        // Group 6: Group 5's following character
-        // Group 7: Ellipsis is followed by a punctuation mark
-        // Group 8: Group 7's punctuation mark
-        // Group 9: All other ellipsis cases
-        '/(?<alone_with_quotes>“\ *…\ *”)|(?<alone_on_line>(?<alone_on_line_start_tag><.*>)\ *…\ *(?<alone_on_line_end_tag><\/.*>))|(?<start_of_line>^\ *…\ *(.))|(?<start_of_quote>^“\ *…\ *(.))|(?<punctuation>\ *…\ *([.,:;?!]))|(?<general>\ *…)/m',
+    return preg_replace_callback('/
+            # Ellipsis is the only character on a line, except quote marks
+            (?<alone_with_quotes>
+                “\ *…\ *”
+            )
+            
+            # Ellipsis is the only character on a line
+            |(?<alone_on_line>
+                (?<alone_on_line_start_tag><.*>)
+                \ *…\ *
+                (?<alone_on_line_end_tag><\/.*>)
+            )
+            
+            # Ellipsis begins a line
+            |(?<start_of_line>
+                ^\ *…\ *(.)
+            )
+            
+            # An opening quote mark and an ellipsis begin a line
+            |(?<start_of_quote>
+                ^“\ *…\ *(.)
+            )
+            
+            # Ellipsis is followed by a punctuation mark
+            |
+            (?<punctuation>
+                \ *…\ *([.,:;?!])
+            )
+            
+            # All other ellipsis cases
+            |
+            (?<general>
+                \ *…
+            )
+        /mx',
         function ($matches) {
             // return '<pre>' . print_r($matches, true) . '</pre>';
 
