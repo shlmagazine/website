@@ -27,7 +27,7 @@ function cmos_ellipses_everywhere($text) {
                 // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
                 // !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
                 // !empty($matches[9]) => $base_ellipsis . ' g9',
-                // default => $matches[0] . ' g0', // fallback
+                default => $matches[0] . ' g0', // fallback
             };
         },
         $text
