@@ -44,7 +44,7 @@ function cmos_ellipses_everywhere($text) {
 
             return match (true) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”' . ' g1',
-                // !empty($matches[2]) => $matches[3] . $base_ellipsis . $matches[4] . ' g2',
+                !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'] . ' g2',
                 // !empty($matches[3]) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
                 // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
                 // !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
