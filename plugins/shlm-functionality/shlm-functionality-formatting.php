@@ -57,7 +57,7 @@ function cmos_ellipses_everywhere($text) {
     );
 }
 function cmos_ellipses_conditionally() {
-    if (is_page('tests')) {
+    if (is_page('test-ellipses')) {
         add_filter('the_content', 'cmos_ellipses_everywhere');
     }
 }
