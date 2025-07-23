@@ -22,7 +22,7 @@ function cmos_ellipses_everywhere($text) {
             
             # An opening quote mark and an ellipsis begin a line
             |(?<start_of_quote>
-                ^“\ *…\ *(.)
+                ^“\ *…\ *(?<start_of_quote_character>.)
             )
             
             # Ellipsis is followed by a punctuation mark
@@ -47,7 +47,7 @@ function cmos_ellipses_everywhere($text) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”' . ' g1',
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'] . ' g2',
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'] . ' g3',
-                // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
+                !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'] . ' g5',
                 // !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
                 // !empty($matches[9]) => $base_ellipsis . ' g9',
                 default => $matches[0] . ' g0', // fallback
