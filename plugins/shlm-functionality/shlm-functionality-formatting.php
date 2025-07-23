@@ -57,7 +57,7 @@ function cmos_ellipses_everywhere($text) {
     );
 }
 function cmos_ellipses_conditionally() {
-    if (is_page('brand')) {
+    if (is_page('tests')) {
         add_filter('the_content', 'cmos_ellipses_everywhere');
     }
 }
