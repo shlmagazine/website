@@ -9,9 +9,9 @@ function cmos_ellipses_everywhere($text) {
             
             # Ellipsis is the only character on a line
             |(?<alone_on_line>
-                (?<alone_on_line_start_tag><.*>)
+                ^(?<alone_on_line_start_tag><.*>)
                 \ *…\ *
-                (?<alone_on_line_end_tag><\/.*>)
+                (?<alone_on_line_end_tag><\/.*>)$
             )
             
             # Ellipsis begins a line
