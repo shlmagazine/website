@@ -16,7 +16,8 @@ function cmos_ellipses_everywhere($text) {
             
             # Ellipsis begins a line
             |(?<start_of_line>
-                ^\ *…\ *(.)
+                ^(?<start_of_line_start_tag><.*>)
+                \ *…\ *(?<start_of_line_character>.)
             )
             
             # An opening quote mark and an ellipsis begin a line
@@ -45,7 +46,7 @@ function cmos_ellipses_everywhere($text) {
             return match (true) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”' . ' g1',
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'] . ' g2',
-                // !empty($matches['start_of_line']) => $base_ellipsis . $nbsp . $matches[4] . ' g3',
+                !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'] . ' g3',
                 // !empty($matches[5]) => '“' . $base_ellipsis . $nbsp . $matches[6] . ' g5',
                 // !empty($matches[7]) => $nbsp . $base_ellipsis . $nbsp . $matches[8] . ' g7',
                 // !empty($matches[9]) => $base_ellipsis . ' g9',
