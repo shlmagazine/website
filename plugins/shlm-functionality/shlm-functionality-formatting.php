@@ -43,6 +43,9 @@ function cmos_ellipses_everywhere($text) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
             $nbsp = '&nbsp;';
 
+            // Todo: Add case for trailing ellipses
+            // Todo: Add case for trailing ellipses with end quotes
+
             return match (true) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”',
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
