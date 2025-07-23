@@ -50,7 +50,7 @@ function cmos_ellipses_everywhere($text) {
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'] . ' g3',
                 !empty($matches['start_of_quote']) => $matches['start_of_quote_start_tag'] . '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'] . ' g5',
                 !empty($matches['punctuation']) => $base_ellipsis . $nbsp . $matches['punctuation_mark'] . ' g7',
-                // !empty($matches[9]) => $base_ellipsis . ' g9',
+                !empty($matches['general']) => $base_ellipsis . ' g9',
                 default => $matches[0] . ' g0', // fallback
             };
         },
