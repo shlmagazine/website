@@ -20,9 +20,8 @@ function cmos_ellipses_everywhere($text) {
                 \ *…\ *(?<start_of_line_character>.)
             )
             
-            # An opening quote mark and an ellipsis begin a line
+            # Ellipsis begin a quote
             |(?<start_of_quote>
-                ^(?<start_of_quote_start_tag><.*>)
                 “\ *…\ *(?<start_of_quote_character>.)
             )
             
@@ -48,7 +47,7 @@ function cmos_ellipses_everywhere($text) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”' . ' g1',
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'] . ' g2',
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'] . ' g3',
-                !empty($matches['start_of_quote']) => $matches['start_of_quote_start_tag'] . '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'] . ' g5',
+                !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'] . ' g5',
                 !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'] . ' g7',
                 !empty($matches['general']) => $nbsp . $base_ellipsis . ' ' . ' g9',
                 default => $matches[0] . ' g0', // fallback
