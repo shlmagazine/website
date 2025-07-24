@@ -59,6 +59,7 @@ function cmos_ellipses_everywhere($text) {
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
                 !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
                 !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'],
+                !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . $matches['end_of_line_end_tag'],
                 !empty($matches['general']) => $nbsp . $base_ellipsis . ' ',
                 default => $matches[0], // fallback
             };
