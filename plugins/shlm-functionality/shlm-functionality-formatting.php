@@ -70,7 +70,7 @@ function cmos_ellipses_everywhere($text) {
     );
 }
 function cmos_ellipses_conditionally() {
-    if (is_page('test-ellipses')) {
+    if (is_page('midnight-matcha')) {
         add_filter('the_content', 'cmos_ellipses_everywhere');
     }
 }
