@@ -71,7 +71,7 @@ function cmos_ellipses_everywhere($text) {
 }
 function cmos_ellipses_conditionally() {
     if (is_page('midnight-matcha')) {
-        add_filter('the_content', 'cmos_ellipses_everywhere');
+        add_filter('the_content', 'cmos_ellipses_everywhere', 12);
     }
 }
 add_action('template_redirect', 'cmos_ellipses_conditionally');
