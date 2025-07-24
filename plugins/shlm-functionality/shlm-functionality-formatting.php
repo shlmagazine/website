@@ -30,6 +30,13 @@ function cmos_ellipses_everywhere($text) {
             (?<punctuation>
                 \ *…\ *(?<punctuation_mark>[.,:;?!])
             )
+
+            # Ellipsis ends a line
+            |
+            (?<end_of_line>
+                \ *…\ *
+                (?<end_of_line_end_tag><\/.*>)$
+            )
             
             # All other ellipsis cases
             |
