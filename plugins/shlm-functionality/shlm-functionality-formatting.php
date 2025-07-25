@@ -16,7 +16,7 @@ function cmos_ellipses_everywhere($text) {
             
             # Ellipsis begins a line
             |(?<start_of_line>
-                ^(?<start_of_line_start_tag><.*>)
+                ^(?<start_of_line_start_tag><.*>)*
                 \ *…\ *(?<start_of_line_character>.)
             )
             
