@@ -6,49 +6,6 @@ function cmos_ellipses_everywhere($text) {
             (?<alone_with_quotes>
                 “\ *…\ *”
             )
-            
-            # Ellipsis is the only character on a line
-            |(?<alone_on_line>
-                ^(?<alone_on_line_start_tag><.*>)
-                \ *…\ *
-                (?<alone_on_line_end_tag><\/.*>)$
-            )
-            
-            # Ellipsis begins a line
-            |(?<start_of_line>
-                ^(?<start_of_line_start_tag><.*>)*
-                \ *…\ *(?<start_of_line_character>.)
-            )
-            
-            # Ellipsis begin a quote
-            |(?<start_of_quote>
-                “\ *…\ *(?<start_of_quote_character>.)
-            )
-            
-            # Ellipsis is followed by a punctuation mark
-            |
-            (?<punctuation>
-                \ *…\ *(?<punctuation_mark>[.,:;?!])
-            )
-
-            # Ellipsis ends a line
-            |
-            (?<end_of_line>
-                \ *…\ *
-                (?<end_of_line_end_tag><\/.*>)$
-            )
-
-            # Ellipsis ends a quote
-            |
-            (?<end_of_quote>
-                \ *…\ *”
-            )
-            
-            # All other ellipsis cases
-            |
-            (?<general>
-                \ *…\ *
-            )
         /mx',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
@@ -56,13 +13,13 @@ function cmos_ellipses_everywhere($text) {
 
             return match (true) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”',
-                !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
-                !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
-                !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
-                !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'],
-                !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . $matches['end_of_line_end_tag'],
-                !empty($matches['end_of_quote']) => $nbsp . $base_ellipsis . '”',
-                !empty($matches['general']) => $nbsp . $base_ellipsis . ' ',
+                // !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
+                // !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
+                // !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
+                // !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'],
+                // !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . $matches['end_of_line_end_tag'],
+                // !empty($matches['end_of_quote']) => $nbsp . $base_ellipsis . '”',
+                // !empty($matches['general']) => $nbsp . $base_ellipsis . ' ',
                 default => $matches[0], // fallback
             };
         },
