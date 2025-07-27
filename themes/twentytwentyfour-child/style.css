@@ -743,6 +743,10 @@ h2.team-member__name {
 	font-family: var(--font-family__h);
 }
 
+.wp-block-group:has(.row-date) {
+	margin-block-start: 4rem;
+}
+
 .row-date {
 	font-style: italic;
 }
