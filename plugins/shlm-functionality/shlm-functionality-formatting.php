@@ -66,9 +66,7 @@ function cmos_ellipses_everywhere($text) {
                     => $base_ellipsis . $nbsp,
                 !empty($matches['punctuation'])
                     => $nbsp . $base_ellipsis . $nbsp,
-                !empty($matches['end_of_line'])
-                    => $nbsp . $base_ellipsis,
-                !empty($matches['end_of_quote'])
+                !empty($matches['end_of_line']) || !empty($matches['end_of_quote'])
                     => $nbsp . $base_ellipsis,
                 !empty($matches['general'])
                     => $nbsp . $base_ellipsis . ' ',
