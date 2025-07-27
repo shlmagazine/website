@@ -4,7 +4,9 @@ function cmos_ellipses_everywhere($text) {
     return preg_replace_callback('/
             # Ellipsis is the only character on a line, except quote marks
             (?<alone_with_quotes>
-                “\ *…\ *”
+                (?<=“)
+                \ *…\ *
+                (?=”)
             )
             
             # Ellipsis is the only character on a line
@@ -51,7 +53,7 @@ function cmos_ellipses_everywhere($text) {
             $nbsp = '&nbsp;';
 
             return match (true) {
-                !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”',
+                !empty($matches['alone_with_quotes']) => $base_ellipsis,
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
                 !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
