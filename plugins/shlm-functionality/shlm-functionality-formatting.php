@@ -9,14 +9,14 @@ function cmos_ellipses_everywhere($text) {
             
             # Ellipsis is the only character on a line
             |(?<alone_on_line>
-                ^(?<alone_on_line_start_tag><.*>)
+                ^(?<alone_on_line_start_tag><.+>)
                 \ *…\ *
-                (?<alone_on_line_end_tag><\/.*>)$
+                (?<alone_on_line_end_tag><\/.+>)$
             )
             
             # Ellipsis begins a line
             |(?<start_of_line>
-                ^(?<start_of_line_start_tag><.*>)
+                ^(?<start_of_line_start_tag><.+>)
                 \ *…\ *(?<start_of_line_character>.)
             )
             
@@ -35,7 +35,7 @@ function cmos_ellipses_everywhere($text) {
             |
             (?<end_of_line>
                 \ *…\ *
-                (?<end_of_line_end_tag><\/.*>)$
+                (?<end_of_line_end_tag><\/.+>)$
             )
 
             # Ellipsis ends a quote
