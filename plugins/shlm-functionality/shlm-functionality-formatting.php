@@ -1,55 +1,6 @@
 <?php
 // Replace ellipsis characters with CMOS-compliant version
 function cmos_ellipses_everywhere($text) {
-    // return preg_replace_callback('/
-    //         # Ellipsis is the only character on a line, except quote marks
-    //         (?<alone_with_quotes>
-    //             “\ *…\ *”
-    //         )
-            
-    //         # Ellipsis is the only character on a line
-    //         |(?<alone_on_line>
-    //             ^(?<alone_on_line_start_tag><.*?>)
-    //             \ *…\ *
-    //             (?<alone_on_line_end_tag><\/.*?>)$
-    //         )
-            
-    //         # Ellipsis begins a line
-    //         |(?<start_of_line>
-    //             ^(?<start_of_line_start_tag><.*?>)*
-    //             \ *…\ *(?<start_of_line_character>.)
-    //         )
-            
-    //         # Ellipsis begin a quote
-    //         |(?<start_of_quote>
-    //             “\ *…\ *(?<start_of_quote_character>.)
-    //         )
-            
-    //         # Ellipsis is followed by a punctuation mark
-    //         |
-    //         (?<punctuation>
-    //             \ *…\ *(?<punctuation_mark>[.,:;?!])
-    //         )
-
-    //         # Ellipsis ends a line
-    //         |
-    //         (?<end_of_line>
-    //             \ *…\ *
-    //             (?<end_of_line_end_tag><\/.*?>)$
-    //         )
-
-    //         # Ellipsis ends a quote
-    //         |
-    //         (?<end_of_quote>
-    //             \ *…\ *”
-    //         )
-            
-    //         # All other ellipsis cases
-    //         |
-    //         (?<general>
-    //             \ *…\ *
-    //         )
-    //     /mx',
     return preg_replace_callback('/…/',
         function ($matches) {
             $base_ellipsis = '.&nbsp;.&nbsp;.';
