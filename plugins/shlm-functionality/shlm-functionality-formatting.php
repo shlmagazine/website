@@ -26,27 +26,23 @@ function cmos_ellipses_everywhere($text) {
             )
             
             # Ellipsis is followed by a punctuation mark
-            |
-            (?<punctuation>
+            |(?<punctuation>
                 \ *…\ *(?<punctuation_mark>[.,:;?!])
             )
 
             # Ellipsis ends a line
-            |
-            (?<end_of_line>
+            |(?<end_of_line>
                 \ *…\ *
                 (?<end_of_line_end_tag><\/.+>)$
             )
 
             # Ellipsis ends a quote
-            |
-            (?<end_of_quote>
+            |(?<end_of_quote>
                 \ *…\ *”
             )
             
             # All other ellipsis cases
-            |
-            (?<general>
+            |(?<general>
                 \ *…\ *
             )
         /mx',
