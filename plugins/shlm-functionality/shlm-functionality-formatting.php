@@ -55,14 +55,14 @@ function cmos_ellipses_everywhere($text) {
             $nbsp = '&nbsp;';
 
             return match (true) {
-                !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”',
-                !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
-                !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
-                !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
-                !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'],
-                !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . $matches['end_of_line_end_tag'],
-                !empty($matches['end_of_quote']) => $nbsp . $base_ellipsis . '”',
-                !empty($matches['general']) => $nbsp . $base_ellipsis . ' ',
+                !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”' . '1',
+                !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'] . '2',
+                !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'] . '3',
+                !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'] . '4',
+                !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'] . '5',
+                !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . $matches['end_of_line_end_tag'] . '6',
+                !empty($matches['end_of_quote']) => $nbsp . $base_ellipsis . '”' . '7',
+                !empty($matches['general']) => $nbsp . $base_ellipsis . ' ' . '8',
                 default => $matches[0], // fallback
             };
         },
