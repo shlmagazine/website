@@ -63,7 +63,7 @@ function cmos_ellipses_everywhere($text) {
                 !empty($matches['end_of_line']) => $nbsp . $base_ellipsis . ($matches['end_of_line_end_tag'] ?? ''),
                 !empty($matches['end_of_quote']) => $nbsp . $base_ellipsis . '”',
                 !empty($matches['general']) => $nbsp . $base_ellipsis . ' ',
-                default => $matches[0], // fallback
+                default => htmlspecialchars($matches[0]), // fallback
             };
         },
         $text
