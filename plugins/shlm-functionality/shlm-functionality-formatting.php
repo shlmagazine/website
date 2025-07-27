@@ -20,7 +20,7 @@ function cmos_ellipses_everywhere($text) {
                 \ *…\ *(?<start_of_line_character>.)
             )
             
-            # Ellipsis begin a quote
+            # Ellipsis begins a quote
             |(?<start_of_quote>
                 “\ *…\ *(?<start_of_quote_character>.)
             )
