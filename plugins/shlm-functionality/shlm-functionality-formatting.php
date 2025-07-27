@@ -14,6 +14,12 @@ function cmos_ellipses_everywhere($text) {
                 (?<alone_on_line_end_tag><\/.+>)$
             )
             
+            # Ellipsis begins an h1 heading title
+            |(?<start_of_h1>
+                <h1(?<start_of_h1_attributes>.*)>
+                \ *…\ *(?<start_of_h1_character>.)
+            )
+            
             # Ellipsis begins a line
             |(?<start_of_line>
                 ^(?<start_of_line_start_tag><.+>)
@@ -57,6 +63,7 @@ function cmos_ellipses_everywhere($text) {
             return match (true) {
                 !empty($matches['alone_with_quotes']) => '“' . $base_ellipsis . '”',
                 !empty($matches['alone_on_line']) => $matches['alone_on_line_start_tag'] . $base_ellipsis . $matches['alone_on_line_end_tag'],
+                !empty($matches['start_of_h1']) => '<h1' . $matches['start_of_h1_attributes'] . '>' . $base_ellipsis . $nbsp . $matches['start_of_h1_character'],
                 !empty($matches['start_of_line']) => $matches['start_of_line_start_tag'] . $base_ellipsis . $nbsp . $matches['start_of_line_character'],
                 !empty($matches['start_of_quote']) => '“' . $base_ellipsis . $nbsp . $matches['start_of_quote_character'],
                 !empty($matches['punctuation']) => $nbsp . $base_ellipsis . $nbsp . $matches['punctuation_mark'],
