@@ -69,7 +69,7 @@ function cmos_ellipses_everywhere($text) {
         $text
     );
 }
-add_filter('the_title', 'cmos_ellipses_everywhere', 12);
+add_filter('the_title', 'cmos_ellipses_everywhere', 20);
 add_filter('the_content', 'cmos_ellipses_everywhere', 12);
 add_filter('pre_get_document_title', 'cmos_ellipses_everywhere', 20);
 
