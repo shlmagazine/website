@@ -197,7 +197,7 @@ h3.wp-block-heading {
 }
 
 .subtitle > .value {
-    font-size: 1.5em;
+    font-size: 2em;
     font-family: var(--font-family__h);
     color: var(--color--gray);
 }
