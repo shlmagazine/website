@@ -202,6 +202,7 @@ h3.wp-block-heading {
     color: var(--color--gray);
 }
 
+blockquote > .block-editor-rich-text__editable,
 .wp-block-pullquote {
     text-align: left;
 }
