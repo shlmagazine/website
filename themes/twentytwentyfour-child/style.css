@@ -202,11 +202,11 @@ h3.wp-block-heading {
     color: var(--color--gray);
 }
 
-.wp-block-pullquote {
+blockquote, .wp-block-pullquote {
     text-align: left;
 }
 
-.wp-block-pullquote cite {
+blockquote, .wp-block-pullquote cite {
     float: right;
     font-size: var(--font-size__body);
     font-family: var(--font-family__body);
