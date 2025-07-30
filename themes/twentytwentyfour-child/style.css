@@ -206,14 +206,6 @@ h3.wp-block-heading {
     text-align: left;
 }
 
-.wp-block-pullquote em::before {
-    content: "“";
-}
-
-.wp-block-pullquote em::after {
-    content: "”";
-}
-
 .wp-block-pullquote cite {
     float: right;
     font-size: var(--font-size__body);
