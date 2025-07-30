@@ -161,7 +161,8 @@ h3,
 h4,
 h5,
 h6,
-.wp-block-heading {
+.wp-block-heading,
+.subtitle {
     color: var(--color--black);
     font-family: var(--font-family__h);
 }
@@ -194,6 +195,11 @@ h3.wp-block-heading {
     font-size: var(--font-size__h3);
     -webkit-margin-after: -0.5rem;
     margin-block-end: -0.5rem;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: var(--color--gray);
 }
 
 .wp-block-pullquote {
