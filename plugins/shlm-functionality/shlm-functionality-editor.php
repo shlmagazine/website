@@ -80,36 +80,32 @@ function remove_parent_theme_block_patterns() {
 }
 add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
 
-// add_action( 'block_patterns_registered', function () {
-//     unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
-//     unregister_block_pattern( 'twentytwentyfour/clients-section' );
-//     unregister_block_pattern( 'twentytwentyfour/three-columns' );
-// } );
+add_action( 'block_patterns_registered', function () {
+    unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
+    unregister_block_pattern( 'twentytwentyfour/clients-section' );
+    unregister_block_pattern( 'twentytwentyfour/three-columns' );
+} );
 
-// add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
-//     if ( ! current_user_can( 'administrator' ) ) return;
+add_action( 'block_patterns_registered', function () {
+    if ( ! current_user_can( 'administrator' ) ) return;
 
-//     $registry = WP_Block_Patterns_Registry::get_instance();
-//     $slugs = array_keys( $registry->get_all_registered() );
+    $registry = WP_Block_Patterns_Registry::get_instance();
+    $slugs = array_keys( $registry->get_all_registered() );
 
-//     $wp_admin_bar->add_node([
-//         'id'    => 'pattern-list-parent',
-//         'title' => 'Block Pattern Slugs',
-//         'href'  => false,
-//     ]);
+    // Output to error log
+    foreach ( $slugs as $slug ) {
+        error_log( 'Pattern slug: ' . $slug );
+    }
 
-//     foreach ( $slugs as $slug ) {
-//         $wp_admin_bar->add_node([
-//             'id'     => 'pattern-' . sanitize_title( $slug ),
-//             'title'  => $slug,
-//             'parent' => 'pattern-list-parent',
-//         ]);
-//     }
-// }, 100 );
-
-// function theme_support() {
-//     remove_theme_support( 'core-block-patterns' );
-// }
-// add_action( 'after_setup_theme', 'theme_support', 11 );
+    // Optional: also show them in admin footer
+    add_action( 'admin_footer', function () use ( $slugs ) {
+        echo '<div style="padding:1em; background:#fff3cd; border:1px solid #ffeeba; margin:1em 0;">';
+        echo '<strong>Registered Block Patterns:</strong><ul>';
+        foreach ( $slugs as $slug ) {
+            echo '<li>' . esc_html( $slug ) . '</li>';
+        }
+        echo '</ul></div>';
+    });
+} );
 
 add_filter( 'should_load_remote_block_patterns', '__return_false' );
