@@ -80,26 +80,5 @@ function remove_parent_theme_block_patterns() {
 }
 add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
 
-add_action( 'block_patterns_registered', function () {
-    unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
-    unregister_block_pattern( 'twentytwentyfour/clients-section' );
-    unregister_block_pattern( 'twentytwentyfour/three-columns' );
-} );
-
+// Disable remote patterns
 add_filter( 'should_load_remote_block_patterns', '__return_false' );
-
-add_action( 'block_patterns_registered', function () {
-    if ( ! current_user_can( 'administrator' ) ) return;
-
-    $registry = WP_Block_Patterns_Registry::get_instance();
-    $slugs = array_keys( $registry->get_all_registered() );
-
-    add_action( 'admin_footer', function () use ( $slugs ) {
-        echo '<div style="padding:1em;background:#fff3cd;border:1px solid #ffeeba;margin:1em 0;">';
-        echo '<strong>Registered Block Patterns:</strong><ul>';
-        foreach ( $slugs as $slug ) {
-            echo '<li>' . esc_html( $slug ) . '</li>';
-        }
-        echo '</ul></div>';
-    });
-} );
