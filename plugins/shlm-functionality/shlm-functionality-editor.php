@@ -112,4 +112,4 @@ function theme_support() {
 }
 add_action( 'after_setup_theme', 'theme_support', 11 );
 
-add_filter( 'should_load_remote_block_patterns', '__return_false' );
+// add_filter( 'should_load_remote_block_patterns', '__return_false' );
