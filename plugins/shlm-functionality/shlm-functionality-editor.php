@@ -12,6 +12,18 @@ function restrict_heading_levels( $args, $block_type ) {
 }
 add_filter( 'register_block_type_args', 'restrict_heading_levels', 10, 2 );
 
+// Disable block variations
+function disable_block_variations() {
+    wp_enqueue_script(
+        'disable-block-variations',
+        get_template_directory_uri() . '/disable-block-variations.js',
+        array( 'wp-dom-ready' ),
+        wp_get_theme()->get( 'Version' ),
+        true
+    );
+}
+add_action( 'enqueue_block_editor_assets', 'disable-block-variations' );
+
 // Disable default core patterns
 function theme_support() {
     remove_theme_support( 'core-block-patterns' );
