@@ -77,8 +77,11 @@ function remove_parent_theme_block_patterns() {
     unregister_block_pattern( 'twentytwentyfour/text-feature-grid-3-col' );
     unregister_block_pattern( 'twentytwentyfour/text-project-details' );
     unregister_block_pattern( 'twentytwentyfour/text-title-left-image-right' );
+}
+add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
+
+add_action( 'block_patterns_registered', function () {
     unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
     unregister_block_pattern( 'twentytwentyfour/clients-section' );
     unregister_block_pattern( 'twentytwentyfour/three-columns' );
-}
-add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
+} );
