@@ -86,20 +86,16 @@ add_action( 'block_patterns_registered', function () {
     unregister_block_pattern( 'twentytwentyfour/three-columns' );
 } );
 
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
+
 add_action( 'block_patterns_registered', function () {
     if ( ! current_user_can( 'administrator' ) ) return;
 
     $registry = WP_Block_Patterns_Registry::get_instance();
     $slugs = array_keys( $registry->get_all_registered() );
 
-    // Output to error log
-    foreach ( $slugs as $slug ) {
-        error_log( 'Pattern slug: ' . $slug );
-    }
-
-    // Optional: also show them in admin footer
     add_action( 'admin_footer', function () use ( $slugs ) {
-        echo '<div style="padding:1em; background:#fff3cd; border:1px solid #ffeeba; margin:1em 0;">';
+        echo '<div style="padding:1em;background:#fff3cd;border:1px solid #ffeeba;margin:1em 0;">';
         echo '<strong>Registered Block Patterns:</strong><ul>';
         foreach ( $slugs as $slug ) {
             echo '<li>' . esc_html( $slug ) . '</li>';
@@ -107,5 +103,3 @@ add_action( 'block_patterns_registered', function () {
         echo '</ul></div>';
     });
 } );
-
-add_filter( 'should_load_remote_block_patterns', '__return_false' );
