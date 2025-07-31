@@ -80,32 +80,32 @@ function remove_parent_theme_block_patterns() {
 }
 add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
 
-add_action( 'block_patterns_registered', function () {
-    unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
-    unregister_block_pattern( 'twentytwentyfour/clients-section' );
-    unregister_block_pattern( 'twentytwentyfour/three-columns' );
-} );
+// add_action( 'block_patterns_registered', function () {
+//     unregister_block_pattern( 'twentytwentyfour/portfolio-home' );
+//     unregister_block_pattern( 'twentytwentyfour/clients-section' );
+//     unregister_block_pattern( 'twentytwentyfour/three-columns' );
+// } );
 
-add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
-    if ( ! current_user_can( 'administrator' ) ) return;
+// add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+//     if ( ! current_user_can( 'administrator' ) ) return;
 
-    $registry = WP_Block_Patterns_Registry::get_instance();
-    $slugs = array_keys( $registry->get_all_registered() );
+//     $registry = WP_Block_Patterns_Registry::get_instance();
+//     $slugs = array_keys( $registry->get_all_registered() );
 
-    $wp_admin_bar->add_node([
-        'id'    => 'pattern-list-parent',
-        'title' => 'Block Pattern Slugs',
-        'href'  => false,
-    ]);
+//     $wp_admin_bar->add_node([
+//         'id'    => 'pattern-list-parent',
+//         'title' => 'Block Pattern Slugs',
+//         'href'  => false,
+//     ]);
 
-    foreach ( $slugs as $slug ) {
-        $wp_admin_bar->add_node([
-            'id'     => 'pattern-' . sanitize_title( $slug ),
-            'title'  => $slug,
-            'parent' => 'pattern-list-parent',
-        ]);
-    }
-}, 100 );
+//     foreach ( $slugs as $slug ) {
+//         $wp_admin_bar->add_node([
+//             'id'     => 'pattern-' . sanitize_title( $slug ),
+//             'title'  => $slug,
+//             'parent' => 'pattern-list-parent',
+//         ]);
+//     }
+// }, 100 );
 
 function theme_support() {
     remove_theme_support( 'core-block-patterns' );
