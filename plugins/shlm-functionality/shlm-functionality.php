@@ -16,6 +16,7 @@ include 'shlm-functionality-acf.php';
 include 'shlm-functionality-block-variations.php';
 include 'shlm-functionality-cf7.php';
 include 'shlm-functionality-custom-post-types.php';
+include 'shlm-functionality-editor.php';
 include 'shlm-functionality-ellipses.php';
 include 'shlm-functionality-profile-settings.php';
 include 'shlm-functionality-query-loops.php';
