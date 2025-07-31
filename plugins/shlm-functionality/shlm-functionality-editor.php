@@ -85,3 +85,10 @@ add_action( 'block_patterns_registered', function () {
     unregister_block_pattern( 'twentytwentyfour/clients-section' );
     unregister_block_pattern( 'twentytwentyfour/three-columns' );
 } );
+
+add_action( 'block_patterns_registered', function () {
+    $registry = WP_Block_Patterns_Registry::get_instance();
+    foreach ( $registry->get_all_registered() as $slug => $pattern ) {
+        error_log( 'Block pattern registered: ' . $slug );
+    }
+} );
