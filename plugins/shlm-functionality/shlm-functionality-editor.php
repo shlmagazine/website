@@ -86,9 +86,23 @@ add_action( 'block_patterns_registered', function () {
     unregister_block_pattern( 'twentytwentyfour/three-columns' );
 } );
 
-add_action( 'block_patterns_registered', function () {
+add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
+    if ( ! current_user_can( 'administrator' ) ) return;
+
     $registry = WP_Block_Patterns_Registry::get_instance();
-    foreach ( $registry->get_all_registered() as $slug => $pattern ) {
-        error_log( 'Block pattern registered: ' . $slug );
+    $slugs = array_keys( $registry->get_all_registered() );
+
+    $wp_admin_bar->add_node([
+        'id'    => 'pattern-list-parent',
+        'title' => 'Block Pattern Slugs',
+        'href'  => false,
+    ]);
+
+    foreach ( $slugs as $slug ) {
+        $wp_admin_bar->add_node([
+            'id'     => 'pattern-' . sanitize_title( $slug ),
+            'title'  => $slug,
+            'parent' => 'pattern-list-parent',
+        ]);
     }
-} );
+}, 100 );
