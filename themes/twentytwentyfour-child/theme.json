@@ -7,7 +7,6 @@
 	],
 	"settings": {
 		"appearanceTools": true,
-        "blockPatterns": false,
 		"color": {
 			"defaultDuotone": false,
 			"defaultPalette": false,
