@@ -9,7 +9,7 @@ function twentytwentyfourchild_enqueue_styles() {
 }
 
 // Disable default pattern directory
-function theme_support() {
-    remove_theme_support( 'core-block-patterns' );
-}
-add_action( 'after_setup_theme', 'theme_support', 11 );
+// function theme_support() {
+//     remove_theme_support( 'core-block-patterns' );
+// }
+// add_action( 'after_setup_theme', 'theme_support', 11 );
