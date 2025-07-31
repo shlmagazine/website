@@ -274,6 +274,10 @@ nav button svg path:hover {
 	margin-block-start: 0 !important;
 }
 
+.text--center {
+    text-align: center;
+}
+
 .text--right {
 	text-align: right;
 }
