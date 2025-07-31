@@ -371,6 +371,12 @@ body:not(.home) main#wp--skip-link--target {
     margin-block-start: var(--wp--preset--spacing--50);
 }
 
+.widest {
+	position: relative;
+	right: 25%;
+	width: 150%;
+}
+
 .grid__columns--2 {
     display: -ms-grid;
     display: grid;
