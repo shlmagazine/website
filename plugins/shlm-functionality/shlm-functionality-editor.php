@@ -11,3 +11,5 @@ function restrict_heading_levels( $args, $block_type ) {
     return $args;
 }
 add_filter( 'register_block_type_args', 'restrict_heading_levels', 10, 2 );
+
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
