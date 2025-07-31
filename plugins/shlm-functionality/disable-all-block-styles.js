@@ -1,3 +1,3 @@
-wp.domReady( () => {
-    wp.blocks.unregisterBlockStyle( 'core/image', 'rounded' );
-});
+// wp.domReady( () => {
+//     wp.blocks.unregisterBlockStyle( 'core/image', 'rounded' );
+// });
