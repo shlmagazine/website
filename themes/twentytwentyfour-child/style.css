@@ -160,6 +160,10 @@ a {
 	font-family: inherit;
 }
 
+.wp-block-query a.wp-block-post-author-name__link {
+	font-size: var(--font-size__body);
+}
+
 h1,
 h2,
 h3,
