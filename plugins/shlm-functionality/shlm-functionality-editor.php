@@ -25,16 +25,16 @@ add_filter( 'register_block_type_args', 'restrict_heading_levels', 10, 2 );
 // add_action( 'enqueue_block_editor_assets', 'disable_all_block_styles' );
 
 // Disable formatting options
-function example_disable_formatting_script() {
-    wp_enqueue_script(
-        'example-disable-formatting-script',
-        get_template_directory_uri() . '/disable-all-block-styles.js',
-        array( 'wp-dom-ready' ),
-        wp_get_theme()->get( 'Version' ),
-        true
-    );
-}
-add_action( 'enqueue_block_editor_assets', 'example_disable_formatting_script' );
+// function example_disable_formatting_script() {
+//     wp_enqueue_script(
+//         'example-disable-formatting-script',
+//         get_template_directory_uri() . '/disable-all-block-styles.js',
+//         array( 'wp-dom-ready' ),
+//         wp_get_theme()->get( 'Version' ),
+//         true
+//     );
+// }
+// add_action( 'enqueue_block_editor_assets', 'example_disable_formatting_script' );
 
 // Disable default core patterns
 function theme_support() {
