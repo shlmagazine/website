@@ -106,3 +106,10 @@ add_action( 'admin_bar_menu', function ( $wp_admin_bar ) {
         ]);
     }
 }, 100 );
+
+function theme_support() {
+    remove_theme_support( 'core-block-patterns' );
+}
+add_action( 'after_setup_theme', 'theme_support', 11 );
+
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
