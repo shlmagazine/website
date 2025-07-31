@@ -107,9 +107,9 @@ add_action( 'init', 'remove_parent_theme_block_patterns', 20 );
 //     }
 // }, 100 );
 
-function theme_support() {
-    remove_theme_support( 'core-block-patterns' );
-}
-add_action( 'after_setup_theme', 'theme_support', 11 );
+// function theme_support() {
+//     remove_theme_support( 'core-block-patterns' );
+// }
+// add_action( 'after_setup_theme', 'theme_support', 11 );
 
-// add_filter( 'should_load_remote_block_patterns', '__return_false' );
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
