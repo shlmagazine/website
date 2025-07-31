@@ -381,6 +381,13 @@ body:not(.home) main#wp--skip-link--target {
 	width: 150%;
 }
 
+@media only screen and (max-width: 768px) {
+    .widest {
+        position: initial;
+        width: initial;
+    }
+}
+
 .grid__columns--2 {
     display: -ms-grid;
     display: grid;
