@@ -12,4 +12,4 @@ function twentytwentyfourchild_enqueue_styles() {
 function theme_support() {
     remove_theme_support( 'core-block-patterns' );
 }
-add_action( 'after_setup_theme', 'theme_support' );
+add_action( 'after_setup_theme', 'theme_support', 11 );
