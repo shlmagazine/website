@@ -386,6 +386,10 @@ body:not(.home) main#wp--skip-link--target {
         position: initial;
         width: 100%;
     }
+
+    .widest li {
+        width: 100%;
+    }
 }
 
 .grid__columns--2 {
