@@ -384,10 +384,11 @@ body:not(.home) main#wp--skip-link--target {
 @media only screen and (max-width: 768px) {
     .widest {
         position: initial;
+        right: 0;
         width: 100%;
     }
 
-    .widest li {
+    .widest li, .widest figure, .widest img {
         width: 100%;
     }
 }
