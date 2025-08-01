@@ -384,7 +384,7 @@ body:not(.home) main#wp--skip-link--target {
 @media only screen and (max-width: 768px) {
     .widest {
         position: initial;
-        width: initial;
+        width: 100%;
     }
 }
 
