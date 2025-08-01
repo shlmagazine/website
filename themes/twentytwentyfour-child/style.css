@@ -386,10 +386,12 @@ body:not(.home) main#wp--skip-link--target {
         position: initial;
         right: 0;
         max-width: 100%;
+        height: auto;
     }
 
     .widest li, .widest figure, .widest img {
         max-width: 100%;
+        height: auto;
     }
 }
 
