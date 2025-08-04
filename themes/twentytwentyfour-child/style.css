@@ -375,6 +375,20 @@ body:not(.home) main#wp--skip-link--target {
     margin-block-start: var(--wp--preset--spacing--50);
 }
 
+.story-types {
+	margin-block-end: 5rem;
+}
+
+.story-types .wp-block-navigation-item__label {
+	font-size: var(--font-size__h3);
+	color: var(--color--red);
+	text-decoration: underline;
+}
+
+.story-types .wp-block-navigation-item__label:hover {
+	color: var(--color--purple);
+}
+
 .widest {
 	position: relative;
 	right: 25%;
