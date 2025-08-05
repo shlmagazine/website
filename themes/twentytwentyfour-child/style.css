@@ -299,6 +299,14 @@ img,
     border-radius: var(--border-radius__img);
 }
 
+img.emoji {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
 .img--medium {
     width: 20rem;
 }
