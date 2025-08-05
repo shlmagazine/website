@@ -305,6 +305,7 @@ img.emoji {
     -moz-border-radius: 0;
     -ms-border-radius: 0;
     -o-border-radius: 0;
+    vertical-align: text-top !important;
 }
 
 .img--medium {
