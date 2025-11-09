@@ -1,4 +1,4 @@
-# Security Policy
+# Security policy
 
 For minor security issues, [open an issue](https://github.com/shlmagazine/website/issues/new).
 
