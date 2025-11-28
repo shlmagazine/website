@@ -153,6 +153,7 @@ nav li {
 em, i {
     font-size: inherit;
 	line-height: inherit;
+	font-family: inherit;
 }
 
 a {
