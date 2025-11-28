@@ -523,6 +523,10 @@ footer .wp-block-loginout a {
     color: var(--color--gray);
 }
 
+footer .wp-block-loginout {
+    display: flex;
+}
+
 @media only screen and (max-width: 768px) {
 	footer > .is-layout-grid {
         display: -webkit-box;
