@@ -973,7 +973,8 @@ label[for] {
 
 label[for]:has(+ .wpcf7-form-control-wrap .wpcf7-validates-as-required)::after,
 p:has(+ .note--top + p .wpcf7-validates-as-required) label[for]::after,
-label[for]:has(+ .wpcf7-form-control-wrap .wpcf7-radio)::after {
+label[for]:has(+ .wpcf7-form-control-wrap .wpcf7-radio)::after,
+label[for^="radio"]::after {
     /* Add asterisk after required questions */
     content: "*";
     color: var(--color--red);
