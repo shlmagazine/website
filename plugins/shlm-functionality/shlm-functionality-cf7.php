@@ -22,6 +22,20 @@ function load_wpcf7_scripts() {
       wpcf7cf_enqueue_styles();
     }
   }
+  if ( is_page('feedback') ) {
+    if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
+      wpcf7_enqueue_scripts();
+    }
+    if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
+      wpcf7_enqueue_styles();
+    }
+    if ( function_exists( 'wpcf7cf_enqueue_scripts' ) ) {
+      wpcf7cf_enqueue_scripts();
+    }
+    if ( function_exists( 'wpcf7cf_enqueue_styles' ) ) {
+      wpcf7cf_enqueue_styles();
+    }
+  }
   if ( is_page('submit') ) {
     if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
       wpcf7_enqueue_scripts();
@@ -36,21 +50,7 @@ function load_wpcf7_scripts() {
       wpcf7cf_enqueue_styles();
     }
   }
-  if ( is_page('pending-submit') ) {
-    if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
-      wpcf7_enqueue_scripts();
-    }
-    if ( function_exists( 'wpcf7_enqueue_styles' ) ) {
-      wpcf7_enqueue_styles();
-    }
-    if ( function_exists( 'wpcf7cf_enqueue_scripts' ) ) {
-      wpcf7cf_enqueue_scripts();
-    }
-    if ( function_exists( 'wpcf7cf_enqueue_styles' ) ) {
-      wpcf7cf_enqueue_styles();
-    }
-  }
-  if ( is_page('feedback') ) {
+  if ( is_page('submit-private') ) {
     if ( function_exists( 'wpcf7_enqueue_scripts' ) ) {
       wpcf7_enqueue_scripts();
     }
