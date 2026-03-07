@@ -60,8 +60,8 @@ Text Domain:  twentytwentyfourchild
     --font-family__body: "Crimson Pro", serif;
     --font-family__h: "Gabarito", sans-serif;
     --font-size__body: 1.1rem;
-    --font-size__h1: 4.5rem;
-    --font-size__h2: 3rem;
+    --font-size__h1: 3rem;
+    --font-size__h2: 2.5rem;
     --font-size__h3: 1.5rem;
     --font-size--small: calc(0.8 * var(--font-size__body));
     --font-weight: 400;
