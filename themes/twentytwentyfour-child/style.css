@@ -671,7 +671,7 @@ body:not(.page) .entry-content > pre:last-child::after {
 
 .media-content .wp-block-mfb-meta-field-block h2 {
 	margin-block: 0;
-	font-size: calc(var(--font-size__h2) * 0.2);
+	font-size: calc(var(--font-size__h2) * 0.25);
 	font-weight: 600;
 	text-transform: uppercase;
 }
