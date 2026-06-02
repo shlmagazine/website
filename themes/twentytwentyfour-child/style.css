@@ -1375,6 +1375,6 @@ input[disabled]:is(:hover, :active) {
     font-family: var(--font-family__h);
 }
 
-.woocommerce-Price-amount > bdi {
+.woocommerce-Price-amount > bdi, .woocommerce-Price-currencySymbol {
     font-family: var(--font-family__h);
 }
