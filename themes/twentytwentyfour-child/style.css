@@ -1,9 +1,9 @@
 /*
 Theme Name:   Twenty Twenty-Four Child
-Theme URI:    
+Theme URI:
 Description:  Twenty Twenty-Four Child Theme
-Author:       
-Author URI:   
+Author:
+Author URI:
 Template:     twentytwentyfour
 Version:      1.0.0
 License:      GNU General Public License v2 or later
@@ -1368,4 +1368,9 @@ input[disabled]:is(:hover, :active) {
 .wpcf7 form.invalid .wpcf7-response-output,
 .wpcf7 form.unaccepted .wpcf7-response-output {
     background-color: hsl(44 100% 40% / 1);
+}
+
+/* || WooCommerce */
+.woocommerce-breadcrumb {
+    font-family: var(--font-family__h);
 }
