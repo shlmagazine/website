@@ -1378,3 +1378,7 @@ input[disabled]:is(:hover, :active) {
 .woocommerce-Price-amount * {
     font-family: var(--font-family__h);
 }
+
+.wp-block-post-terms * {
+    font-family: var(--font-family__h);
+}
