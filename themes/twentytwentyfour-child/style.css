@@ -1374,3 +1374,7 @@ input[disabled]:is(:hover, :active) {
 .woocommerce-breadcrumb {
     font-family: var(--font-family__h);
 }
+
+.woocommerce-Price-amount > bdi {
+    font-family: var(--font-family__h);
+}
