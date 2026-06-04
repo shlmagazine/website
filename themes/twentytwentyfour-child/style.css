@@ -1399,10 +1399,10 @@ input[disabled]:is(:hover, :active) {
 }
 
 #wcpay-express-checkout-element {
-    margin-top: 0;
+    margin-top: 0 !important;
     border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
-    -webkit-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
-    -moz-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
-    -ms-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
-    -o-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
+    -webkit-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
+    -moz-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
+    -ms-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
+    -o-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
 }
