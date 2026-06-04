@@ -1389,7 +1389,7 @@ input[disabled]:is(:hover, :active) {
 }
 
 .wcpay-express-checkout-wrapper {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
     border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
     -webkit-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
