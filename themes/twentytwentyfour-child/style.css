@@ -1398,7 +1398,7 @@ input[disabled]:is(:hover, :active) {
     -o-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
 }
 
-.wcpay-express-checkout-element {
+#wcpay-express-checkout-element {
     margin-top: 0;
     border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
     -webkit-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
