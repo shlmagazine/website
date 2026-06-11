@@ -1402,7 +1402,7 @@ input[disabled]:is(:hover, :active) {
 }
 
 #wcpay-express-checkout-element {
-    overflow: hidden;
+    overflow: hidden; /* https://stackoverflow.com/questions/6535217/css-adding-border-radius-to-an-iframe */
     margin-top: 0 !important;
     border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
     -webkit-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
