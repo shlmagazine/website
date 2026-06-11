@@ -1394,19 +1394,20 @@ input[disabled]:is(:hover, :active) {
 }
 
 .woopay-express-button {
-	border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
-    -webkit-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
-    -moz-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
-    -ms-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
-    -o-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button);
+	border-radius: var(--border-radius__button) 0 0 var(--border-radius__button) !important;
+	-webkit-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button) !important;
+	-moz-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button) !important;
+	-ms-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button) !important;
+	-o-border-radius: var(--border-radius__button) 0 0 var(--border-radius__button) !important;
 }
 
 #wcpay-express-checkout-element {
-    overflow: hidden; /* https://stackoverflow.com/questions/6535217/css-adding-border-radius-to-an-iframe */
+    overflow: hidden !important;
+    /* https://stackoverflow.com/questions/6535217/css-adding-border-radius-to-an-iframe */
     margin-top: 0 !important;
-    border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0;
-    -webkit-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
-    -moz-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
-    -ms-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
-    -o-border-radius:  0 var(--border-radius__button) var(--border-radius__button) 0;
+    border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0 !important;
+    -webkit-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0 !important;
+    -moz-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0 !important;
+    -ms-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0 !important;
+    -o-border-radius: 0 var(--border-radius__button) var(--border-radius__button) 0 !important;
 }
