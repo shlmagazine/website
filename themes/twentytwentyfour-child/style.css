@@ -164,7 +164,11 @@ a {
 
 code {
 	border-radius: var(--border-radius__highlight);
-	padding: 0.3rem;
+	-webkit-border-radius: var(--border-radius__highlight);
+	-moz-border-radius: var(--border-radius__highlight);
+	-ms-border-radius: var(--border-radius__highlight);
+	-o-border-radius: var(--border-radius__highlight);
+	padding: 0 0.3rem;
 	background-color: hsl(0 3% 85% / 1);
 	font-family: revert;
 }
