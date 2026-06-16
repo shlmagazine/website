@@ -1384,6 +1384,10 @@ input[disabled]:is(:hover, :active) {
     font-family: var(--font-family__h);
 }
 
+.wp-block-woocommerce-add-to-cart-form form.cart {
+	display: flex;
+}
+
 .wc-block-components-quantity-selector {
 	border-radius: var(--border-radius__button);
 	-webkit-border-radius: var(--border-radius__button);
