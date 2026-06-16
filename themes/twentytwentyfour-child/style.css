@@ -52,6 +52,7 @@ Text Domain:  twentytwentyfourchild
 
 :root {
     --border-radius__img: 0.8rem;
+	--border-radius__highlight: 0.2rem;
     --color--black: #0f0e0e;
     --color--gray: hsl(0 3% 40% / 1);
     --color--red: #7b0828;
@@ -159,6 +160,13 @@ em, i {
 a {
 	font-size: inherit;
 	font-family: inherit;
+}
+
+code {
+	border-radius: var(--border-radius__highlight);
+	padding: 0.3rem;
+	background-color: hsl(0 3% 85% / 1);
+	font-family: revert;
 }
 
 .wp-block-query a.wp-block-post-author-name__link {
