@@ -96,7 +96,7 @@ Text Domain:  twentytwentyfourchild
     border-radius: var(--border-radius__button);
     outline: var(--focus__button);
     outline-width: 0;
-    outline-offset: -1px;
+    outline-offset: 2px;
     font-size: var(--font-size__body);
     line-height: var(--line-height);
     font-family: var(--font-family__body);
