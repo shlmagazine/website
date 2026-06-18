@@ -1401,7 +1401,7 @@ input[disabled]:is(:hover, :active) {
 }
 
 .wc-block-components-quantity-selector {
-    display: none;
+    display: none !important;
 	/* border-radius: var(--border-radius__button);
 	-webkit-border-radius: var(--border-radius__button);
 	-moz-border-radius: var(--border-radius__button);
