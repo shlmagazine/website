@@ -1424,6 +1424,11 @@ input[disabled]:is(:hover, :active) {
     font-family: var(--font-family__h);
 }
 
+.single_add_to_cart_button[name='add-to-cart'] {
+	color: var(--color--black);
+	background-color: var(--color--white);
+}
+
 /* .wp-block-post-terms * {
     font-family: var(--font-family__h);
 } */
