@@ -1401,11 +1401,12 @@ input[disabled]:is(:hover, :active) {
 }
 
 .wc-block-components-quantity-selector {
-	border-radius: var(--border-radius__button);
+    display: none;
+	/* border-radius: var(--border-radius__button);
 	-webkit-border-radius: var(--border-radius__button);
 	-moz-border-radius: var(--border-radius__button);
 	-ms-border-radius: var(--border-radius__button);
-	-o-border-radius: var(--border-radius__button);
+	-o-border-radius: var(--border-radius__button); */
 }
 
 .single_add_to_cart_button {
