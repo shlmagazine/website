@@ -1424,6 +1424,16 @@ input[disabled]:is(:hover, :active) {
     font-family: var(--font-family__h);
 }
 
+.single_add_to_cart_button:hover {
+    -webkit-filter: var(--hover__button);
+    filter: var(--hover__button);
+}
+
+.single_add_to_cart_button:active {
+    filter: var(--active__button);
+    -webkit-filter: var(--active__button);
+}
+
 .single_add_to_cart_button[name='add-to-cart'] {
 	color: var(--color--black);
 	background-color: var(--color--white);
