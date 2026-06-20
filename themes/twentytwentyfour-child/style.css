@@ -1413,11 +1413,11 @@ input[disabled]:is(:hover, :active) {
 	margin-right: 0.5rem;
 	border: var(--border__button);
 	border-radius: var(--border-radius__button);
-	padding: var(--padding__button--big);
 	-webkit-border-radius: var(--border-radius__button);
 	-moz-border-radius: var(--border-radius__button);
 	-ms-border-radius: var(--border-radius__button);
 	-o-border-radius: var(--border-radius__button);
+	padding: var(--padding__button--big);
 	background-color: var(--color--black);
     font-size: var(--font-size__body);
     line-height: initial;
@@ -1425,8 +1425,8 @@ input[disabled]:is(:hover, :active) {
 }
 
 .single_add_to_cart_button:hover {
-    -webkit-filter: var(--hover__button);
     filter: var(--hover__button);
+    -webkit-filter: var(--hover__button);
 }
 
 .single_add_to_cart_button:active {
