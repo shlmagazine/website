@@ -1482,6 +1482,10 @@ input[disabled]:is(:hover, :active) {
 }
 
 @media only screen and (max-width: 1160px) {
+	.single-product .wp-block-columns-is-layout-flex > .wp-block-column {
+		flex-basis: 100% !important;
+	}
+
 	.wp-block-woocommerce-add-to-cart-form form.cart {
 		flex-wrap: wrap;
 		gap: 0.5rem;
