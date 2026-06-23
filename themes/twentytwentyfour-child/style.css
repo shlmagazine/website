@@ -1488,7 +1488,7 @@ input[disabled]:is(:hover, :active) {
 	}
 
 	.single_add_to_cart_button {
-		width: 100%;
+		flex-basis: 100%;
 	}
 }
 
