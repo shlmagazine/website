@@ -1483,15 +1483,12 @@ input[disabled]:is(:hover, :active) {
 
 @media only screen and (max-width: 1160px) {
 	.wp-block-woocommerce-add-to-cart-form form.cart {
-		display: block;
+		flex-wrap: wrap;
+		gap: 0.5rem;
 	}
 
 	.single_add_to_cart_button {
 		width: 100%;
-	}
-
-	.single_add_to_cart_button[name='add-to-cart'] {
-		margin-block-end: 0.5rem !important;
 	}
 }
 
