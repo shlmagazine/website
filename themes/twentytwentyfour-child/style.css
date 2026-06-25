@@ -1486,6 +1486,10 @@ input[disabled]:is(:hover, :active) {
 		flex-basis: 100% !important;
 	}
 
+	.wp-block-woocommerce-product-image-gallery {
+		margin-inline: auto;
+	}
+
 	.wp-block-woocommerce-add-to-cart-form form.cart {
 		flex-wrap: wrap;
 		gap: 0.5rem;
