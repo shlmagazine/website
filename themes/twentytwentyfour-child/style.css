@@ -1512,8 +1512,19 @@ input[disabled]:is(:hover, :active) {
 }
 
 .wp-element-button {
+    /* WooCommerce banner button */
 	font-size: var(--font-size__body);
 	font-family: var(--font-family__h);
+}
+
+.wp-block-woocommerce-cart * {
+	font-family: var(--font-family__h);
+	font-weight: normal !important;
+	text-transform: none !important;
+}
+
+.wc-block-cart__main .wc-block-cart-items__header span {
+	font-size: var(--font-size__body);
 }
 
 /* .wp-block-post-terms * {
