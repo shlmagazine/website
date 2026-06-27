@@ -1500,6 +1500,21 @@ input[disabled]:is(:hover, :active) {
 	}
 }
 
+.wc-block-components-notice-banner {
+	border-width: var(--border-width);
+	border-radius: var(--border-radius__img);
+}
+
+.wc-block-components-notice-banner__content {
+	font-size: var(--font-size__body);
+	font-family: var(--font-family__h);
+}
+
+.wp-element-button {
+	font-size: var(--font-size__body);
+	font-family: var(--font-family__h);
+}
+
 /* .wp-block-post-terms * {
     font-family: var(--font-family__h);
 } */
