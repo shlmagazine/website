@@ -65,6 +65,7 @@ Text Domain:  twentytwentyfourchild
     --font-size__h2: 2.5rem;
     --font-size__h3: 1.5rem;
     --font-size--bsmall: calc(0.8 * var(--font-size__body));
+    --font-size--hsmall: calc(var(--font-size__h2) * 0.25);
     --font-weight: 400;
     --height__input: 2.5rem;
     --height__input--big: 3rem;
@@ -684,7 +685,7 @@ body:not(.page) .entry-content > pre:last-child::after {
 
 .media-content .wp-block-mfb-meta-field-block h2 {
 	margin-block: 0;
-	font-size: calc(var(--font-size__h2) * 0.25);
+	font-size: var(--font-size--hsmall);
 	font-weight: 600;
 	text-transform: uppercase;
 }
