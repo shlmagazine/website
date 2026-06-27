@@ -64,7 +64,7 @@ Text Domain:  twentytwentyfourchild
     --font-size__h1: 3rem;
     --font-size__h2: 2.5rem;
     --font-size__h3: 1.5rem;
-    --font-size--small: calc(0.8 * var(--font-size__body));
+    --font-size--bsmall: calc(0.8 * var(--font-size__body));
     --font-weight: 400;
     --height__input: 2.5rem;
     --height__input--big: 3rem;
@@ -276,7 +276,7 @@ nav button svg path:hover {
 .wp-block-table figcaption,
 .wp-block-video figcaption {
     font-family: var(--font-family__h);
-    font-size: var(--font-size--small);
+    font-size: var(--font-size--bsmall);
 }
 
 .text--h {
@@ -531,7 +531,7 @@ footer .wp-block-social-link-label,
 footer .wp-block-social-links svg path,
 footer .wp-block-navigation-item__label,
 footer .wp-block-loginout a {
-    font-size: var(--font-size--small) !important;
+    font-size: var(--font-size--bsmall) !important;
     font-family: var(--font-family__h);
     color: var(--color--gray);
 }
@@ -1156,7 +1156,7 @@ input[type="radio"] {
     color: #fff;
     cursor: pointer;
     font-family: var(--font-family__h);
-    font-size: var(--font-size--small);
+    font-size: var(--font-size--bsmall);
     height: var(--height__input);
     padding: var(--padding__button--normal);
 }
@@ -1269,7 +1269,7 @@ input::-webkit-file-upload-button, input::file-selector-button {
     color: #fff;
     cursor: pointer;
     font-family: var(--font-family__h);
-    font-size: var(--font-size--small);
+    font-size: var(--font-size--bsmall);
     height: var(--height__input);
     -webkit-margin-end: 1rem;
     margin-inline-end: 1rem;
@@ -1287,7 +1287,7 @@ input::-webkit-file-upload-button, input::file-selector-button {
     color: var(--color--black);
     cursor: pointer;
     font-family: var(--font-family__h);
-    font-size: var(--font-size--small);
+    font-size: var(--font-size--bsmall);
     width: 100%;
 }
 
