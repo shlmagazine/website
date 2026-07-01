@@ -1530,6 +1530,10 @@ input[disabled]:is(:hover, :active) {
 	font-size: var(--font-size__body);
 }
 
+.wc-block-cart-items, .wc-block-cart-items td {
+	border-radius: 0 !important;
+}
+
 /* .wp-block-post-terms * {
     font-family: var(--font-family__h);
 } */
