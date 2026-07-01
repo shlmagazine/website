@@ -1538,6 +1538,16 @@ input[disabled]:is(:hover, :active) {
 	-o-border-radius: 0;
 }
 
+@container (min-width: 700px) {
+	/* Container query from default WooCommerce styles */
+	.wc-block-cart-items {
+		border-bottom: var(--border__button) !important;
+	}
+	.wc-block-cart-items td {
+		border-top: var(--border__button) !important;
+	}
+}
+
 /* .wp-block-post-terms * {
     font-family: var(--font-family__h);
 } */
