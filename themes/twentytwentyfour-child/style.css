@@ -51,8 +51,8 @@ Text Domain:  twentytwentyfourchild
 */
 
 :root {
-    --border-radius__img: 0.8rem;
-	--border-radius__highlight: 0.2rem;
+    --border-radius__img: 14px;
+	--border-radius__highlight: 4px;
     --color--black: #0f0e0e;
     --color--gray: hsl(0 3% 40% / 1);
     --color--red: #7b0828;
@@ -64,7 +64,7 @@ Text Domain:  twentytwentyfourchild
     --font-size__h1: 3rem;
     --font-size__h2: 2.5rem;
     --font-size__h3: 1.5rem;
-    --font-size--bsmall: calc(0.8 * var(--font-size__body));
+    --font-size--bsmall: calc(var(--font-size__body) * 0.8);
     --font-size--hsmall: calc(var(--font-size__h2) * 0.25);
     --font-weight: 400;
     --height__input: 2.5rem;
@@ -75,7 +75,7 @@ Text Domain:  twentytwentyfourchild
     --transition-timing-behavior--bounce: cubic-bezier(0, 2.5, 0.5, 2);
     --border-width: 2px;
     --border__button: var(--border-width) solid var(--color--black);
-    --border-radius__button: 0.5rem;
+    --border-radius__button: 8px;
     --padding__button--vertical: 0.7rem;
     --padding__button--horizontal: 1rem;
     --padding__button--normal: var(--padding__button--vertical)
