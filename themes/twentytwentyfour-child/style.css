@@ -1531,7 +1531,11 @@ input[disabled]:is(:hover, :active) {
 }
 
 .wc-block-cart-items, .wc-block-cart-items td {
-	border-radius: 0 !important;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
 }
 
 /* .wp-block-post-terms * {
