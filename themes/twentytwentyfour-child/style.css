@@ -1548,6 +1548,10 @@ input[disabled]:is(:hover, :active) {
 	}
 }
 
+.wc-block-cart-item__wrap > .wc-block-components-product-name {
+	font-size: var(--font-size__body) !important;
+}
+
 /* .wp-block-post-terms * {
     font-family: var(--font-family__h);
 } */
